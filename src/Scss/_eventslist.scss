@@ -1,0 +1,10 @@
+@import 'mixins';
+
+h4 {
+	@include four;
+}
+
+p {
+	@include p14;
+	color: black;
+}

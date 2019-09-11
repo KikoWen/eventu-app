@@ -1,0 +1,93 @@
+$font-stack:    'Apple SD Gothic Neo';
+$primary-color: #8400d1;
+@import 'mixins';
+
+.container {
+    text-align: center; 
+}
+
+.logo {
+    width: 80%;
+    max-width: 20em;
+    margin-top: 50%;
+    margin-bottom: 6%;
+}
+
+.email-contents {
+
+    .welcome {
+        font-family: $font-stack;
+        letter-spacing: 0.1em;
+    }
+
+    input {
+        border: 1.5px lightgrey solid;
+        width: 74%;
+        height: 3em;
+        background-color: #F8F8F8;
+    }
+
+    #Email {
+        border-top-left-radius: 0.7em;
+        border-top-right-radius: 0.7em;
+        border-bottom: 0.5px;
+    }
+
+    #Password {
+        border-bottom-left-radius: 0.7em;
+        border-bottom-right-radius: 0.7em;
+    }
+
+    ::placeholder {
+        font-size: 0.8em;
+        padding-left: 1em;
+        color: grey;
+    }
+
+    p {
+        font-size: 0.8em;
+        color: grey;
+        margin-left: 42%;
+        // margin-left: 11.4em;
+        margin-top: 0.5em;
+    }
+}
+
+.btn {
+    @include button();
+ 
+}
+
+.guestlogin {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.notice-for-signup {
+    font-size: 0.8em;
+    margin-top: 1.5em;
+
+    p {
+        margin-bottom: 0;
+    }
+    .red-text {
+        color: red;
+    }
+}
+
+.space {
+    border-bottom: 1px solid gray;
+    width: 2em;
+    height: 1em;
+    margin: auto;
+}
+
+.guestlogin {
+    margin-top: 0.3em;
+}
+
+.home-footer{
+    display: flex;
+    justify-content: space-between
+
+}

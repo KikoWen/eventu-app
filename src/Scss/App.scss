@@ -1,0 +1,32 @@
+
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+$primary-color: #2D2B88;
+// $p-heavy: ;
+$secondary-color: #333;
+
+$entertainment-color: #6236FF;
+$wellbeing-color: #519607;
+$sport-color: #0091FF;
+$flood-color: #FA6400;
+$misc-color: #E02064;
+$font-family: 'Raleway';
+
+// @import '.Scss/login';
+// @import '.Scss/signup';
+// @import '.Scss/homepage';
+// @import '.Scss/eventslist';
+// @import '.Scss/mixins';
+
+
+@import 'login';
+@import 'signup';
+@import 'homepage';
+@import 'eventslist';
+@import 'mixins';
+
+
+
+
