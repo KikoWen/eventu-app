@@ -34,7 +34,7 @@ class App extends Component{
       },
       {
         name:'wellbeing',
-        id: 2,
+        id: 2, 
         description: 'meditation',
         location:'3 City rd, Grafton, Auckland',
         time: '10th Oct 2019',
