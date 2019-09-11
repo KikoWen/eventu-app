@@ -102,8 +102,8 @@ class App extends Component{
                 return (
                   <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, '+catColors[event.category]+'),url(../public/music.jpg)'}} >
                     <div className="information">
-                        <div className="category">
-                            <button>{event.category}</button>
+                        <div className="category-noborder">
+                            <button class="category">{event.category}</button>
                             <i className="far fa-bookmark"></i>
                             <i className="far fa-edit"></i> 
                         </div>
@@ -121,31 +121,12 @@ class App extends Component{
               })
             }
             
-             {/* <div className="upcoming">
-                <div className="upcoming-heading"><h4>Upcoming Events</h4></div>
-                <div className="upcoming-event-box">
-                    <div className="picture-div">
-                        <img src="assets/img/pic2.jpg" alt="" /> 
-                    </div>
-                    <div className="info-div">
-                        <div className="upcoming-event-name">Marathon</div>
-                        <div className="upcoming-event-location">Mission Bay</div>
-                        <div className="upcoming-event-box-icons">
-                            <div className="like"><i className="far fa-bookmark"></i></div>
-                            <div className="share"><i className="far fa-share-square"></i></div>
-                        </div>
-                        <div className="category-button ">
-                            sport
-                        </div>
-                    </div>
-                </div>
-            </div> */}
         </div>
        
         <div className="footer">
             <div className="home-footer">
                 <i className="fas fa-home"></i>
-                <i className="fas fa-search"></i>
+                <i className="fas fa-plus"></i>
                 <i className="far fa-bookmark"></i>
                 <i className="fas fa-bars"></i>
 

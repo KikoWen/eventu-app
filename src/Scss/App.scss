@@ -4,29 +4,46 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 $primary-color: #2D2B88;
-// $p-heavy: ;
 $secondary-color: #333;
-
 $entertainment-color: #6236FF;
 $wellbeing-color: #519607;
 $sport-color: #0091FF;
 $flood-color: #FA6400;
 $misc-color: #E02064;
-$font-family: 'Raleway';
+$font-family: 'Raleway', sans-serif;
 
-// @import '.Scss/login';
-// @import '.Scss/signup';
-// @import '.Scss/homepage';
-// @import '.Scss/eventslist';
-// @import '.Scss/mixins';
-
-
+@import 'mixins';
 @import 'login';
-@import 'signup';
+@import 'signup'; 
 @import 'homepage';
 @import 'eventslist';
-@import 'mixins';
+@import 'addevent';
+@import 'editevent';
+
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css';
 
 
+.container{
+    height: 100vh;
+    display: flex;
+    border: 0;
+    flex-direction: column;
+    margin:0;
+    padding:1em 2em;
+    box-sizing: border-box;
+    overflow: hidden;
+    border:1px red solid;
+    .header{
+        flex:0 0 auto;
+    }
+    .main{
+        flex:1 1 auto;
+        overflow-y:scroll;
+    }
+    .footer{
+        margin-top:1em;
+        flex:0 0 auto;
+    }
+}
 
 

@@ -1,10 +1,49 @@
 @import 'mixins';
 
-h4 {
-	@include four;
+// .entertainment-button{
+// 	@include category-button;
+// 	color: $entertainment-color;
+// }
+
+.card{
+	text-align: left;
+	border: none;
+	
+	.card-body{
+		padding: 0;
+		margin: 0;
+	}
+
 }
 
-p {
+h4 {
+	@include h4;
+}
+
+.eventlist-location{
 	@include p14;
-	color: black;
+	color: $entertainment-color;
+	width: 6em;
+	border-bottom: 3px solid $secondary-color;
+	padding-bottom: 1em;
+}
+
+h3{
+	@include h3;
+}
+
+.like{
+	text-align: right;
+	letter-spacing: 0.4em;
+}
+
+.p-eventlist-description{
+	@include p16;
+	color: $secondary-color;
+	margin-top: 1.5em;
+}
+
+.readmore{
+	@include p14;
+	color: $secondary-color;
 }

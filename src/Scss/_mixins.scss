@@ -1,44 +1,52 @@
-$font-family: 'Raleway';
+$font-family: 'Montserrat', sans-serif;
 
+@mixin category-button {
+	padding: 0.2em 0.6em;
+    border: 1px solid $entertainment-color;
+	border-radius: 25px;
+}
+@mixin category-button-noborder {
+    padding: 0.2em 0.6em;
+    background-color: white;
+    border: none;
+	border-radius: 25px;
+}
 
 @mixin button(){
-
     background-color: $primary-color;
     color: white;
     padding: 0.6em 6em;
     border-radius: 25px;
-    margin-top: 6.5em;
     letter-spacing: 0.1em;
 }
 
 @mixin h1{
     font-size: 28px;
-    font-weight: 800;
+    font-weight: 700;
     font-family: $font-family;
 }
 
 @mixin h2{
     font-size: 21px;
-    font-weight: 800;
+    font-weight: 500;
     font-family: $font-family;
 }
 
 @mixin h3{
     font-size: 17px;
-    font-weight: 800;
+    font-weight: 500;
     font-family: $font-family;
 }
 
-
-@mixin four{
+@mixin h4{
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 700;
     font-family: $font-family;
 }
 
 @mixin p14{
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     font-family: $font-family;
 }
 
@@ -53,4 +61,3 @@ $font-family: 'Raleway';
     font-weight: 400;
     font-family: $font-family;
 }
-
