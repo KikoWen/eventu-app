@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Router, Link } from "@reach/router";
+import { Router, Link, navigate } from "@reach/router";
+
 // import {getEvents} from './Api.jsx'; import in Component.jsx
 import RouteEvents from './RouteEvents';
 import RouteAddEvent from './RouteAddEvent';
@@ -7,7 +8,6 @@ import RouteEditEvent from './RouteEditEvent';
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
-import Axios from 'axios';
 
 var urlPrefix ='http://localhost:4000/api'; 
 
@@ -74,81 +74,82 @@ class App extends Component{
     var {events} = this.state
     return(
 
-      <div className="container homepage-container">
-        <div className="header">
+  //     <div className="container homepage-container">
+  //       <div className="header">
 
-            <div className="header1">   
-                <h6>What's on</h6>
-                <div className="location">
-                    <h1>Auckland</h1>
-                    <i className="fas fa-map-marker-alt"></i>
-                </div>
-            </div>
+  //           <div className="header1">   
+  //               <h6>What's on</h6>
+  //               <div className="location">
+  //                   <h1>Auckland</h1>
+  //                   <i className="fas fa-map-marker-alt"></i>
+  //               </div>
+  //           </div>
             
-            <div className="header2">
-                <h6 className="hi-name">Hi, Kathryn</h6>
-                <div className="filter">  
-                <div className="filter">
-                    <p className="filter-p">filter</p> 
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                </div>
-            </div>
-        </div>
+  //           <div className="header2">
+  //               <h6 className="hi-name">Hi, Kathryn</h6>
+  //               <div className="filter">  
+  //               <div className="filter">
+  //                   <p className="filter-p">filter</p> 
+  //                   <i class="fas fa-chevron-down"></i>
+  //               </div>
+  //               </div>
+  //           </div>
+  //       </div>
 
-        <div className="main">
-            {
-              events.map(event=>{
-                return (
-                  <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, '+catColors[event.category]+'),url(../public/music.jpg)'}} >
-                    <div className="information">
-                        <div className="category-noborder">
-                            <button class="category">{event.category}</button>
-                            <i className="far fa-bookmark"></i>
-                            <i className="far fa-edit"></i> 
-                        </div>
+  //       <div className="main">
+  //           {
+  //             events.map(event=>{
+  //               return (
+  //                 <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, '+catColors[event.category]+'),url(../public/music.jpg)'}} >
+  //                   <div className="information">
+  //                       <div className="category-noborder">
+  //                           <button class="category">{event.category}</button>
+  //                           <i className="far fa-bookmark"></i>
+  //                           <i className="far fa-edit"></i> 
+  //                       </div>
     
-                        <div className="event-info"> 
-                            <div className="date-location">
-                                <h2 className="event-date">{event.time}</h2> <i className="fas fa-map-marker-alt"></i> <h2>{event.location}</h2>
-                            </div>
-                            <p className="card-description">{event.description}</p>
-                        </div>
+  //                       <div className="event-info"> 
+  //                           <div className="date-location">
+  //                               <h2 className="event-date">{event.time}</h2> <i className="fas fa-map-marker-alt"></i> <h2>{event.location}</h2>
+  //                           </div>
+  //                           <p className="card-description">{event.description}</p>
+  //                       </div>
                         
-                    </div>
-                </div>
-                )
-              })
-            }
+  //                   </div>
+  //               </div>
+  //               )
+  //             })
+  //           }
             
-        </div>
+  //       </div>
        
-        <div className="footer">
-            <div className="home-footer">
-                <i className="fas fa-home"></i>
-                <i className="fas fa-plus"></i>
-                <i className="far fa-bookmark"></i>
-                <i className="fas fa-bars"></i>
+  //       <div className="footer">
+  //           <div className="home-footer">
+  //               <i className="fas fa-home"></i>
+  //               <Link to=""><i className="fas fa-plus"></i></Link>
+  //               <i className="far fa-bookmark"></i>
+  //               <i className="fas fa-bars"></i>
 
-            </div>
+  //           </div>
 
+  //       </div>
+	// </div>
+      <div >
+
+        <div>
+          <Router>
+
+            <RouteEvents path='/'/>
+
+            {/* <RouteEvents path='events'/> */}
+            <RouteAddEvent path='/events/create'/>
+
+            <RouteEditEvent path='/events/:id/edit'/>
+
+          </Router>
         </div>
-	</div>
-      // <div >hello!
 
-      //   <div>
-      //     <Router>
-
-      //       <RouteEvents path='events'/>
-
-      //       <RouteAddEvent path='events/create'/>
-
-      //       <RouteEditEvent path='events/:id/edit'/>
-
-      //     </Router>
-      //   </div>
-
-      // </div>
+      </div>
     );
    
     
