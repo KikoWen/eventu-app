@@ -16,46 +16,46 @@ class App extends Component{
     super(props)
     this.state={
       events:[
-        {
-          name:'testing',
-          id: 1,
-          description: 'live music',
-          location:'3 City rd, Grafton, Auckland',
-          time: '10th Oct 2019',
-          category: 'entertainment',
-      },
-      {
-        name:'fitness',
-        id: 3,
-        description: 'gym time',
-        location:'3 City rd, Grafton, Auckland',
-        time: '10th Oct 2019',
-        category: 'sport'
-      },
-      {
-        name:'wellbeing',
-        id: 2,
-        description: 'meditation',
-        location:'3 City rd, Grafton, Auckland',
-        time: '10th Oct 2019',
-        category: 'wellbeing'
-      },
-      {
-        name:'food & drink',
-        id: 4,
-        description: 'meditation',
-        location:'3 City rd, Grafton, Auckland',
-        time: '10th Oct 2019',
-        category: 'foodDrink'
-      },
-      {
-        name:'exchange cloths market',
-        id: 5,
-        description: 'meditation',
-        location:'3 City rd, Grafton, Auckland',
-        time: '10th Oct 2019',
-        category: 'miscellaneous'
-      }
+      //   {
+      //     name:'testing',
+      //     id: 1,
+      //     description: 'live music',
+      //     location:'3 City rd, Grafton, Auckland',
+      //     time: '10th Oct 2019',
+      //     category: 'entertainment',
+      // },
+      // {
+      //   name:'fitness',
+      //   id: 3,
+      //   description: 'gym time',
+      //   location:'3 City rd, Grafton, Auckland',
+      //   time: '10th Oct 2019',
+      //   category: 'sport'
+      // },
+      // {
+      //   name:'wellbeing',
+      //   id: 2,
+      //   description: 'meditation',
+      //   location:'3 City rd, Grafton, Auckland',
+      //   time: '10th Oct 2019',
+      //   category: 'wellbeing'
+      // },
+      // {
+      //   name:'food & drink',
+      //   id: 4,
+      //   description: 'meditation',
+      //   location:'3 City rd, Grafton, Auckland',
+      //   time: '10th Oct 2019',
+      //   category: 'foodDrink'
+      // },
+      // {
+      //   name:'exchange cloths market',
+      //   id: 5,
+      //   description: 'meditation',
+      //   location:'3 City rd, Grafton, Auckland',
+      //   time: '10th Oct 2019',
+      //   category: 'miscellaneous'
+      // }
       ]
     }
   }
@@ -100,23 +100,23 @@ class App extends Component{
   //           {
   //             events.map(event=>{
   //               return (
-  //                 <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, '+catColors[event.category]+'),url(../public/music.jpg)'}} >
-  //                   <div className="information">
-  //                       <div className="category-noborder">
-  //                           <button class="category">{event.category}</button>
-  //                           <i className="far fa-bookmark"></i>
-  //                           <i className="far fa-edit"></i> 
-  //                       </div>
-    
-  //                       <div className="event-info"> 
-  //                           <div className="date-location">
-  //                               <h2 className="event-date">{event.time}</h2> <i className="fas fa-map-marker-alt"></i> <h2>{event.location}</h2>
-  //                           </div>
-  //                           <p className="card-description">{event.description}</p>
-  //                       </div>
+                  // <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, '+catColors[event.category]+'),url(../public/music.jpg)'}} >
+                  //   <div className="information">
+                  //     <div className="category-noborder">
+                  //       <button class="category">{event.category}</button>
+                  //       <i className="far fa-bookmark"></i>
+                  //       <i className="far fa-edit"></i> 
+                  //     </div>
+  
+                  //     <div className="event-info"> 
+                  //       <div className="date-location">
+                  //         <h2 className="event-date">{event.time}</h2> <i className="fas fa-map-marker-alt"></i> <h2>{event.location}</h2>
+                  //       </div>
+                  //       <p className="card-description">{event.description}</p>
+                  //     </div>
                         
-  //                   </div>
-  //               </div>
+                  //   </div>
+                  // </div>
   //               )
   //             })
   //           }
@@ -134,20 +134,19 @@ class App extends Component{
 
   //       </div>
 	// </div>
-      <div >
+      <div>
 
-        <div>
+        {/* <div> */}
           <Router>
 
-            <RouteEvents path='/'/>
+            <RouteEvents path='/events'/>
 
-            {/* <RouteEvents path='events'/> */}
             <RouteAddEvent path='/events/create'/>
 
             <RouteEditEvent path='/events/:id/edit'/>
 
           </Router>
-        </div>
+        {/* </div> */}
 
       </div>
     );

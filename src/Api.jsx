@@ -14,6 +14,7 @@ var getCategories = () => {
        
 }
 
+
 var  addEvents = (data) => {
     return axios.post(urlPrefix+'/events',data)
     
@@ -34,4 +35,11 @@ var deleteEvents = (id) => {
 
   }
 
-export {getEvents, getCategories , serverURL, addEvents, getSingleEvent, updateEvents, deleteEvents}
+var uploadFile = (formData) => {
+
+  var settings = { headers: {'Content-Type': 'multipart/form-data' }}
+  return axios.post(urlPrefix+'/upload',formData,settings)
+
+}
+
+export {getEvents, getCategories , serverURL, addEvents, getSingleEvent, updateEvents, deleteEvents,uploadFile}

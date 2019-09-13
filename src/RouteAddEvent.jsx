@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {addEvents} from './Api.jsx';
+import {addEvents,uploadFile} from './Api.jsx';
 import { navigate } from '@reach/router';
 
 class RouteAddEvent extends Component{
@@ -8,16 +8,23 @@ class RouteAddEvent extends Component{
 
     var formData = new FormData(this.form);
 
-    var data = {
-      name:formData.get('eventName'),
-      category:formData.get('eventType'),
-      location:formData.get('eventLocation'),
-      description:formData.get('eventDescription'),
-      price:formData.get('ticketPrice'),
-    }
+    uploadFile(formData).then(res=>{
 
-    console.log(data);
-    addEvents(data).then(res => navigate('/'))
+
+      var data = {
+        name:formData.get('eventName'),
+        category:formData.get('eventType'),
+        location:formData.get('eventLocation'),
+        description:formData.get('eventDescription'),
+        price:formData.get('ticketPrice'),
+        photo: res.data
+      }
+  
+      addEvents(data).then(res => navigate('/events'))
+
+      
+    })
+
   }
     
  
@@ -30,60 +37,54 @@ class RouteAddEvent extends Component{
                 
         </div>
         
-        <div class="main"><h2>Add event</h2>
-            <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
-                <div class="form-group">
-                    <label for="eventName">Event Name</label>
-                    <input type="name" class="form-control" name="eventName" id="eventName"/>
-                </div>
-                <div class="event-type-and-location">
-                    <div class="form-group">
-                        <label for="eventType">Event Type</label>
-                        <select class="form-control" id="eventType" name="eventType">
-                            <option>Entertainment</option>
-                            <option>Wellbeing</option>
-                            <option>Sport</option>
-                            <option>Food & Drink</option>
-                            <option>Miscellaneous</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label for="eventLocation">Event Location</label>
-                        <input type="location" class="form-control" name="eventLocation" id="eventLocation"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="eventDescription">Event Description</label>
-                    <textarea class="form-control" name="eventDescription" id="eventDescription" rows="4"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="uploadPhoto">Upload Photo</label>
-                    <input type="file" class="form-control-file" name="uploadPhoto" id="uploadPhoto"/>
-                </div>
-                <div class="form-group">
-                    <label for="ticketPrice">Event Name</label>
-                    <input type="price" class="form-control" name="ticketPrice" id="ticketPrice"/>
-                </div>
-                <button type="submit" className="btn btn-primary">PLEEaaESSSsse</button>
-            </form>
-            
+        <div class="main">
+          <h2>Add event</h2>
+          <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
+            <div class="form-group">
+              <label for="eventName">Event Name</label>
+              <input type="name" class="form-control" name="eventName" id="eventName"/>
+            </div>
+            <div class="event-type-and-location">
+              <div class="form-group">
+                <label for="eventType">Event Type</label>
+                <select class="form-control" id="eventType" name="eventType">
+                  <option>Entertainment</option>
+                  <option>Wellbeing</option>
+                  <option>Sport</option>
+                  <option>Food & Drink</option>
+                  <option>Miscellaneous</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label for="eventLocation">Event Location</label>
+                <input type="location" class="form-control" name="eventLocation" id="eventLocation"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="eventDescription">Event Description</label>
+              <textarea class="form-control" name="eventDescription" id="eventDescription" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="uploadPhoto">Upload Photo</label>
+              <input type="file" class="form-control-file" name="uploadPhoto" id="uploadPhoto"/>
+            </div>
+            <div class="form-group">
+              <label for="ticketPrice">Ticket Price</label>
+              <input type="price" class="form-control" name="ticketPrice" id="ticketPrice"/>
+            </div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </form>
         </div>
         <div class="footer">
-            <div class="home-footer">
-                <i class="fas fa-home"></i>
-                <i class="fas fa-plus"></i>
-                <i class="far fa-bookmark"></i>
-                <i class="fas fa-bars"></i>
-            </div>
+          <div class="home-footer">
+            <i class="fas fa-home"></i>
+            <i class="fas fa-plus"></i>
+            <i class="far fa-bookmark"></i>
+            <i class="fas fa-bars"></i>
+          </div>
         </div>
-        
       </div>
-
-      
-
-
     )
   }
-    
 } 
 export default RouteAddEvent ;
