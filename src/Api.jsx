@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-var urlPrefix = 'http://10.2.24.40:4000/api';
-var serverURL= 'http://10.2.24.40:4000/';
+var urlPrefix = 'http://localhost:4000/api';
+var serverURL= 'http://localhost:4000/';
 
 
 var getEvents = () => {
