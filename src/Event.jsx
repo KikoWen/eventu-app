@@ -28,7 +28,7 @@ class Event extends Component {
                     <div className="category-noborder">
                         <button className="category">{event.category}</button>
                         <i className="far fa-bookmark"></i>
-                        <i className="far fa-edit"></i>
+                        <Link to='/events/event/edit'><i className="far fa-edit"></i></Link>
                         <i onClick={this.handleTrashClick} className="fas fa-trash"></i> 
                     </div>
 

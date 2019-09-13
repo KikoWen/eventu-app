@@ -14,6 +14,9 @@ var urlPrefix ='http://localhost:4000/api';
 class App extends Component{
   constructor(props){
     super(props)
+    this.state={
+      events:[]
+    }
    
   }
 

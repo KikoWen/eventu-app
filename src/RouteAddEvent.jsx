@@ -21,7 +21,6 @@ class RouteAddEvent extends Component{
       }
   
       addEvents(data).then(res => navigate('/events'))
-
       
     })
 

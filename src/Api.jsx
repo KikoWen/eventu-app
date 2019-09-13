@@ -42,4 +42,4 @@ var uploadFile = (formData) => {
 
 }
 
-export {getEvents, getCategories , serverURL, addEvents, getSingleEvent, updateEvents, deleteEvents,uploadFile}
+export {getEvents, getCategories , serverURL, addEvents, getSingleEvent, updateEvents, deleteEvents, uploadFile}
