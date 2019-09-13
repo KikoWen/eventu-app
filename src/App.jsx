@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { Router, Link } from "@reach/router";
 // import {getEvents} from './Api.jsx'; import in Component.jsx
-import RouteEvents from './RouteEvents';
-import RouteAddEvent from './RouteAddEvent';
-import RouteEditEvent from './RouteEditEvent';
+import RouteEvents from './RouteEvents.jsx';
+import RouteAddEvent from './RouteAddEvent.jsx';
+import RouteEditEvent from './RouteEditEvent.jsx';
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
@@ -114,13 +114,11 @@ class App extends Component{
                             </div>
                             <p className="card-description">{event.description}</p>
                         </div>
-                        
                     </div>
                 </div>
                 )
               })
             }
-            
         </div>
        
         <div className="footer">
@@ -129,9 +127,7 @@ class App extends Component{
                 <i className="fas fa-plus"></i>
                 <i className="far fa-bookmark"></i>
                 <i className="fas fa-bars"></i>
-
             </div>
-
         </div>
 	</div>
       // <div >hello!
