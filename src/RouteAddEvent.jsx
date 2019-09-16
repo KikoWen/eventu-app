@@ -16,7 +16,7 @@ class RouteAddEvent extends Component{
         category:formData.get('eventType'),
         location:formData.get('eventLocation'),
         description:formData.get('eventDescription'),
-        price:formData.get('ticketPrice'),
+        cost:formData.get('ticketPrice'),
         photo: res.data
       }
   
@@ -25,9 +25,6 @@ class RouteAddEvent extends Component{
     })
 
   }
-    
- 
-
     
   render(){
     return (
@@ -41,7 +38,7 @@ class RouteAddEvent extends Component{
           <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
             <div class="form-group">
               <label for="eventName">Event Name</label>
-              <input type="name" class="form-control" name="eventName" id="eventName"/>
+              <input type="text" class="form-control" name="eventName" id="eventName"/>
             </div>
             <div class="event-type-and-location">
               <div class="form-group">
@@ -56,7 +53,7 @@ class RouteAddEvent extends Component{
               </div>
               <div className="form-group">
                 <label for="eventLocation">Event Location</label>
-                <input type="location" class="form-control" name="eventLocation" id="eventLocation"/>
+                <input type="text" class="form-control" name="eventLocation" id="eventLocation"/>
               </div>
             </div>
             <div class="form-group">
@@ -69,7 +66,7 @@ class RouteAddEvent extends Component{
             </div>
             <div class="form-group">
               <label for="ticketPrice">Ticket Price</label>
-              <input type="price" class="form-control" name="ticketPrice" id="ticketPrice"/>
+              <input type="text" class="form-control" name="ticketPrice" id="ticketPrice"/>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>

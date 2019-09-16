@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { Router, Link, navigate } from "@reach/router";
 
 // import {getEvents} from './Api.jsx'; import in Component.jsx
-import RouteEvents from './RouteEvents';
-import RouteAddEvent from './RouteAddEvent';
-import RouteEditEvent from './RouteEditEvent';
+import RouteEvents from './RouteEvents.jsx';
+import RouteAddEvent from './RouteAddEvent.jsx';
+import RouteEditEvent from './RouteEditEvent.jsx';
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
@@ -22,18 +22,20 @@ class App extends Component{
 
   render(){
 
-    var catColors = {
-      sport: '#0091FF',
-      wellbeing: '#519607',
-      entertainment: '#6236FF',
-      foodDrink: '#FA6400',
-      miscellaneous: '#E02064'
-    }
+    // var catColors = {
+    //   sport: '#0091FF',
+    //   wellbeing: '#519607',
+    //   entertainment: '#6236FF',
+    //   foodDrink: '#FA6400',
+    //   miscellaneous: '#E02064'
+    // }
     var {events} = this.state
     return(
 
         <div>
           <Router>
+
+            <RouteEvents path='/'/>  
 
             <RouteEvents path='/events'/>
 

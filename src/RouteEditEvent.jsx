@@ -11,8 +11,8 @@ class RouteEditEvent extends Component{
       }
 
       componentDidMount(){
-        var {event} = this.props;
-        getSingleEvent(event).then(res => {
+        var {id} = this.props;
+        getSingleEvent(id).then(res => {
           this.setState({event:res.data})
         })
       }
@@ -27,30 +27,33 @@ class RouteEditEvent extends Component{
           category:formData.get('eventType'),
           location:formData.get('eventLocation'),
           description:formData.get('eventDescription'),
-          price:formData.get('ticketPrice'),
+          cost:formData.get('ticketPrice'),
+      
         }
-        var {event} = this.props;
+        var {id} = this.props;
 
-        updateEvents(event,data).then(res => navigate('/events'))
+        updateEvents(id,data).then(res => navigate('/events'))
       }
 
     
       render(){
+        
+        var {name,description,catogory,location,cost} = this.state.event
         return (
-          <div class="container addevent-container">
-            <div class="header"> 
+          <div className="container addevent-container">
+            <div className="header"> 
             </div>
-            <div class="main">
+            <div className="main">
               <h2>Edit event</h2>
               <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
-                <div class="form-group">
-                  <label for="eventName">Event Name</label>
-                  <input type="name" class="form-control" name="eventName" id="eventName"/>
+                <div className="form-group">
+                  <label htmlFor="eventName">Event Name</label>
+                  <input type="text" className="form-control" name="eventName" id="eventName" defaultValue={name} />
                 </div>
-                <div class="event-type-and-location">
-                  <div class="form-group">
-                    <label for="eventType">Event Type</label>
-                    <select class="form-control" id="eventType" name="eventType">
+                <div className="event-type-and-location">
+                  <div className="form-group">
+                    <label htmlFor="eventType">Event Type</label>
+                    <select className="form-control" id="eventType" name="eventType" defaultValue ={catogory}> 
                       <option>Entertainment</option>
                       <option>Wellbeing</option>
                       <option>Sport</option>
@@ -59,31 +62,31 @@ class RouteEditEvent extends Component{
                     </select>
                   </div>
                   <div className="form-group">
-                    <label for="eventLocation">Event Location</label>
-                    <input type="location" class="form-control" name="eventLocation" id="eventLocation"/>
+                    <label htmlFor="eventLocation">Event Location</label>
+                    <input type="text" className="form-control" name="eventLocation" id="eventLocation" defaultValue={location}/>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="eventDescription">Event Description</label>
-                  <textarea class="form-control" name="eventDescription" id="eventDescription" rows="4"></textarea>
+                <div className="form-group">
+                  <label htmlFor="eventDescription">Event Description</label>
+                  <textarea className="form-control" name="eventDescription" id="eventDescription" rows="4" defaultValue={description}/>
                 </div>
-                <div class="form-group">
-                  <label for="uploadPhoto">Upload Photo</label>
-                  <input type="file" class="form-control-file" name="uploadPhoto" id="uploadPhoto"/>
+                <div className="form-group">
+                  <label htmlFor="uploadPhoto">Upload Photo</label>
+                  <input type="file" className="form-control-file" name="uploadPhoto" id="uploadPhoto"/>
                 </div>
-                <div class="form-group">
-                  <label for="ticketPrice">Ticket Price</label>
-                  <input type="price" class="form-control" name="ticketPrice" id="ticketPrice"/>
+                <div className="form-group">
+                  <label htmlFor="ticketPrice">Ticket Price</label>
+                  <input type="text" className="form-control" name="ticketPrice" id="ticketPrice" defaultValue={cost}/>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Update</button>
               </form>
             </div>
-            <div class="footer">
-              <div class="home-footer">
-                <i class="fas fa-home"></i>
-                <i class="fas fa-plus"></i>
-                <i class="far fa-bookmark"></i>
-                <i class="fas fa-bars"></i>
+            <div className="footer">
+              <div className="home-footer">
+                <i className="fas fa-home"></i>
+                <i className="fas fa-plus"></i>
+                <i className="far fa-bookmark"></i>
+                <i className="fas fa-bars"></i>
               </div>
             </div>
           </div>

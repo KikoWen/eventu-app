@@ -12,13 +12,13 @@ class Event extends Component {
 
     render(){
 
-        var catColors = {
-            sport: '#0091FF',
-            wellbeing: '#519607',
-            entertainment: '#6236FF',
-            foodDrink: '#FA6400',
-            miscellaneous: '#E02064'
-          }
+        // var catColors = {
+        //     sport: '#0091FF',
+        //     wellbeing: '#519607',
+        //     entertainment: '#6236FF',
+        //     foodDrink: '#FA6400',
+        //     miscellaneous: '#E02064'
+        //   }
 
         var {event} = this.props
 
@@ -28,13 +28,15 @@ class Event extends Component {
                     <div className="category-noborder">
                         <button className="category">{event.category}</button>
                         <i className="far fa-bookmark"></i>
-                        <Link to='/events/event/edit'><i className="far fa-edit"></i></Link>
+                        <Link to={'/events/'+event.id+'/edit'}><i className="far fa-edit"></i></Link>
                         <i onClick={this.handleTrashClick} className="fas fa-trash"></i> 
                     </div>
 
                     <div className="event-info"> 
                         <div className="date-location">
-                            <h2 className="event-date">{event.time}</h2> <i className="fas fa-map-marker-alt"></i> <h2>{event.location}</h2>
+                            <h2 className="event-date">{event.time}</h2> <i className="fas fa-map-marker-alt"></i> 
+                            <h2>{event.location}</h2>
+                            <h3 className="event-price">{event.cost}</h3>
                         </div>
                         <p className="card-description">{event.description}</p>
                     </div>
