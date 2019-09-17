@@ -5,6 +5,11 @@ import { Router, Link, navigate } from "@reach/router";
 import RouteEvents from './RouteEvents.jsx';
 import RouteAddEvent from './RouteAddEvent.jsx';
 import RouteEditEvent from './RouteEditEvent.jsx';
+
+import RouteUsers from './UserComponent/RouteUsers.jsx';
+import RouteAddUser from './UserComponent/RouteAddUser.jsx';
+import RouteEditUser from './UserComponent/RouteEditUser.jsx';
+
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
@@ -42,6 +47,12 @@ class App extends Component{
             <RouteAddEvent path='/events/create'/>
 
             <RouteEditEvent path='/events/:id/edit'/>
+
+            <RouteUsers path='/users'/>
+
+            <RouteAddUser path='/users/create'/>
+
+            <RouteEditUser path='/users/:id/edit'/>
 
           </Router>
         </div>
