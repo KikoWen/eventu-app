@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import { Router, Link, navigate } from "@reach/router";
+import { Router, Link, navigate, Redirect } from "@reach/router";
 
 // import {getEvents} from './Api.jsx'; import in Component.jsx
 import RouteEvents from './RouteEvents';
 import RouteAddEvent from './RouteAddEvent';
 import RouteEditEvent from './RouteEditEvent';
+import RouteLogin from './RouteLogin.jsx';
+
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
@@ -15,9 +17,13 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state={
-      events:[]
+      // events:[]
+      currentUser:null
     }
    
+  }
+  setCurrentUser = (user) => {
+    this.setState({currentUser:user})
   }
 
   render(){
@@ -35,11 +41,16 @@ class App extends Component{
         <div>
           <Router>
 
+          {/* <Redirect from="/" to="/authenticate"/> */}
+
+
+
             <RouteEvents path='/events'/>
 
             <RouteAddEvent path='/events/create'/>
 
             <RouteEditEvent path='/events/:id/edit'/>
+            <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
 
           </Router>
         </div>
