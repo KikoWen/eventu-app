@@ -18,7 +18,11 @@ var getCategories = () => {
 var  addEvents = (data) => {
     return axios.post(urlPrefix+'/events',data)
     
-  }
+}
+
+var  authenticate = (data) => {
+  return axios.post(urlPrefix+'/authenticate',data)          
+}
 
 var getSingleEvent = (id) => {
     return axios.get(urlPrefix+'/events/' + id)
@@ -42,4 +46,4 @@ var uploadFile = (formData) => {
 
 }
 
-export {getEvents, getCategories , serverURL, addEvents, getSingleEvent, updateEvents, deleteEvents, uploadFile}
+export {getEvents, getCategories , serverURL, addEvents, getSingleEvent, updateEvents, deleteEvents, uploadFile, authenticate}

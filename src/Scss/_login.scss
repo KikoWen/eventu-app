@@ -12,6 +12,7 @@ $primary-color: #8400d1;
 	max-width: 20em;
 	margin-top: 50%;
 	margin-bottom: 6%;
+	margin: auto;
 }
 
 .email-contents {
@@ -27,13 +28,13 @@ $primary-color: #8400d1;
 		background-color: #f8f8f8;
 	}
 
-	#Email {
+	#Username-input {
 		border-top-left-radius: 0.7em;
 		border-top-right-radius: 0.7em;
 		border-bottom: 0.5px;
 	}
 
-	#Password {
+	#Password-input {
 		border-bottom-left-radius: 0.7em;
 		border-bottom-right-radius: 0.7em;
 	}
@@ -62,12 +63,16 @@ $primary-color: #8400d1;
 	font-size: 0.8em;
 }
 
+.alret {
+	color: gray;
+}
 .notice-for-signup {
 	font-size: 0.8em;
 	margin-top: 1.5em;
 
 	p {
 		margin-bottom: 0;
+		color: gray;
 	}
 	.red-text {
 		color: red;
