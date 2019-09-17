@@ -1,0 +1,61 @@
+.savedEvents-title{
+    
+    i{
+        margin-left: 0.25em;
+    }
+}
+.header2{
+    .filter-p{
+        color: black;
+    }
+}
+
+.savedEvents-container{
+    .header{
+        margin-top: 1em;
+    }
+    .upcoming-heading{
+        text-align: left;
+        cursor: pointer;
+        background-color: white;
+        
+    }
+    ::-webkit-scrollbar {
+        width: 0px; 
+        background: transparent;
+    }
+
+    .upcoming-event-box{
+        padding: 0.75em;
+        position: relative;
+        margin: 1em 0;
+        box-shadow: 0 0 0.75em -0.5em rgba(0, 0, 0, 0.35);
+    }
+
+    .upcoming-event-name{
+        font-weight: 700;
+    }
+
+    .upcoming-event-location{
+        font-weight: 300;
+        color: $light-gray;
+    }
+
+    .upcoming-event-box-icons{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 1em;
+        font-size: 1.25em;
+        justify-content: center;
+    }
+    .category-button{
+        margin-top: 1em;
+        font-size: 0.8em;
+        text-align: center;
+        color: $sport-color;
+        border: 1px solid $sport-color;
+    }
+
+}
+
