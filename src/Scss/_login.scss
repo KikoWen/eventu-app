@@ -10,9 +10,7 @@ $primary-color: #8400d1;
 .logo {
 	width: 80%;
 	max-width: 20em;
-	margin-top: 50%;
-	margin-bottom: 6%;
-	margin: auto;
+	margin: 8em auto;
 }
 
 .email-contents {
@@ -55,9 +53,21 @@ $primary-color: #8400d1;
 }
 
 .btn {
-	@include button();
+	background-color: $primary-color;
+	color: white;
 }
 
+
+.btn-purple{
+	background-color: $primary-color !important;
+	color: white !important;
+	padding: 0.5em 6em;
+	font-weight: 500;
+	letter-spacing: 1px;
+	border: $primary-color;
+	border-radius: 22px;
+	margin-top: 2em;
+}
 .guestlogin {
 	color: grey;
 	font-size: 0.8em;
@@ -67,8 +77,9 @@ $primary-color: #8400d1;
 	color: gray;
 }
 .notice-for-signup {
-	font-size: 0.8em;
-	margin-top: 1.5em;
+	font-size: 0.6em;
+	margin-top: 2em;
+	
 
 	p {
 		margin-bottom: 0;
@@ -83,7 +94,7 @@ $primary-color: #8400d1;
 	border-bottom: 1px solid gray;
 	width: 2em;
 	height: 1em;
-	margin: auto;
+	margin: 1em auto;
 }
 
 .guestlogin {

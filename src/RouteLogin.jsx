@@ -51,8 +51,8 @@ class RouteLogin extends Component {
                     <p>Forgot password?</p>
                 </div>
                 
-                <button type="Sign-in" class="btn">SIGN IN</button>
-                <p class="alret">{this.state.message}</p>
+                <button type="Sign-in" class="btn-purple">SIGN IN</button>
+                {/* <p class="alret">{this.state.message}</p> */}
             </form>
 
                 <div class="notice-for-signup">

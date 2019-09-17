@@ -2,17 +2,11 @@ import React, {Component} from 'react';
 import { Router, Link, navigate, Redirect } from "@reach/router";
 
 // import {getEvents} from './Api.jsx'; import in Component.jsx
-<<<<<<< HEAD
-import RouteEvents from './RouteEvents.jsx';
-import RouteAddEvent from './RouteAddEvent.jsx';
-import RouteEditEvent from './RouteEditEvent.jsx';
-=======
 import RouteEvents from './RouteEvents';
 import RouteAddEvent from './RouteAddEvent';
 import RouteEditEvent from './RouteEditEvent';
 import RouteLogin from './RouteLogin.jsx';
 
->>>>>>> crud1/juhee
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
