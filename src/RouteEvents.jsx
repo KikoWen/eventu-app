@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link } from "@reach/router";
 import Event from './Event';
 import { getEvents } from './Api';
-import RouteFooter from './RouteFooter.jsx';
+import Footer from './Footer.jsx';
 
 class RouteEvents extends Component{
     constructor(props){
@@ -101,7 +101,7 @@ class RouteEvents extends Component{
                         })
                     }
                 </div>
-                <RouteFooter/>
+                <Footer/>
             </div>
     
 

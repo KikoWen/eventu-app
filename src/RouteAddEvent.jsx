@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {addEvents,uploadFile} from './Api.jsx';
 import { navigate, Link } from '@reach/router';
-import RouteFooter from './RouteFooter.jsx';
+import Footer from './Footer.jsx'
 
 class RouteAddEvent extends Component{
   handleFormSubmit = (e) => {
@@ -80,7 +80,7 @@ class RouteAddEvent extends Component{
             <i class="fas fa-bars"></i>
           </div>
         </div> */}
-        <RouteFooter/>
+        <Footer/>
       </div>
     )
   }

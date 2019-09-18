@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {addUsers,uploadFile} from '../Api.jsx';
 import { navigate } from '@reach/router';
+import Footer from '../Footer.jsx'
 
 class RouteAddUser extends Component{
 
@@ -61,6 +62,7 @@ class RouteAddUser extends Component{
                     </form>
                     </div>
                 </div>
+                <Footer/>
             </div>
 
         )

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {getSingleUser, updateUsers} from '../Api.jsx';
 import { navigate } from '@reach/router';
-import RouteFooter from '../RouteFooter.jsx'
+import Footer from '../Footer.jsx'
 
 class RouteEditUser extends Component{
 
@@ -80,7 +80,7 @@ class RouteEditUser extends Component{
                     </form>
                     </div>
                 </div>
-                <RouteFooter/>
+                <Footer/>
             </div>
 
             
