@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link } from "@reach/router";
 import User from './User';
 import { getUsers } from '../Api';
+import RouteFooter from '../RouteFooter.jsx'
 
 class RouteUsers extends Component{
     constructor(props){
@@ -42,6 +43,7 @@ class RouteUsers extends Component{
                             })
                         }
                     </div>  
+                    <RouteFooter/>
                 </div>
             )
         }

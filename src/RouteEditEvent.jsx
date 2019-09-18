@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { getSingleEvent , updateEvents} from './Api.jsx';
 import { navigate } from '@reach/router';
+import RouteFooter from './RouteFooter.jsx';
 
 class RouteEditEvent extends Component{
     constructor(props){
@@ -81,14 +82,7 @@ class RouteEditEvent extends Component{
                 <button type="submit" className="btn btn-primary">Update</button>
               </form>
             </div>
-            <div className="footer">
-              <div className="home-footer">
-                <i className="fas fa-home"></i>
-                <i className="fas fa-plus"></i>
-                <i className="far fa-bookmark"></i>
-                <i className="fas fa-bars"></i>
-              </div>
-            </div>
+            <RouteFooter/>
           </div>
     
 

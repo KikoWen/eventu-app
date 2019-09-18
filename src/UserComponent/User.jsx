@@ -19,8 +19,14 @@ class User extends Component{
                 <div className="user-email">{user.email}</div>
                 <div className="user-role">{user.role}</div>
                 <div className="edit-platform">
-                    <div className="user-delete"><i onClick={this.handleTrashClick} className="far fa-trash-alt"></i></div>
-                    <div className="user-edit"><i className="far fa-edit"></i></div>
+                    <div className="user-delete">
+                        <i onClick={this.handleTrashClick} className="far fa-trash-alt"></i>
+                        </div>
+                    <div className="user-edit">
+                        <Link to={'/users/'+ user.id+'/edit'}>
+                            <i className="far fa-edit"></i>
+                        </Link>
+                        </div>
                 
                 </div>
             </div>
