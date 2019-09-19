@@ -8,7 +8,7 @@ class RouteAddEvent extends Component{
     e.preventDefault();
 
     var formData = new FormData(this.form);
-
+    var {currentUser} = this.props
     uploadFile(formData).then(res=>{
 
 
@@ -18,7 +18,8 @@ class RouteAddEvent extends Component{
         location:formData.get('eventLocation'),
         description:formData.get('eventDescription'),
         cost:formData.get('ticketPrice'),
-        photo: res.data
+        photo: res.data,
+        user_id: currentUser.id
       }
   
       addEvents(data).then(res => navigate('/events'))

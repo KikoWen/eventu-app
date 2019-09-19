@@ -14,6 +14,7 @@ import RouteEditUser from './UserComponent/RouteEditUser.jsx';
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
+import { getSingleEvent, getSingleUser, getCategories } from './Api';
 
 var urlPrefix ='http://localhost:4000/api'; 
 
@@ -21,45 +22,47 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state={
-      // events:[]
-      currentUser:null
+      currentUser: null
  
     }
    
   }
+
   setCurrentUser = (user) => {
     this.setState({currentUser:user})
   }
+  componentDidMount(){
 
+     //local storage
+     var userId = localStorage.getItem('userId')
+
+     if(userId){
+       getSingleUser(userId).then(res => this.setState({currentUser:res.data}))
+     }
+  }
 
 
   render(){
-
-    // var catColors = {
-    //   sport: '#0091FF',
-    //   wellbeing: '#519607',
-    //   entertainment: '#6236FF',
-    //   foodDrink: '#FA6400',
-    //   miscellaneous: '#E02064'
-    // }
-    // var {events} = this.state
+    var {currentUser} = this.state
     return(
 
         <div>
           <Router>
 
-            <RouteEvents path='/events'/>
+            <RouteEvents currentUser={currentUser} path='/events'/>
 
-            <RouteAddEvent path='/events/create'/>
+            <RouteAddEvent currentUser={currentUser}  path='/events/create'/>
 
-            <RouteEditEvent path='/events/:id/edit'/>
+            <RouteEditEvent path='/events/:id/edit/'/>
+
             <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
 
-            <RouteUsers path='/users'/>
+            {(currentUser && currentUser.role=='admin') ? <RouteUsers path='/users'/> : null} 
 
             <RouteAddUser path='/users/create'/>
 
-            <RouteEditUser path='/users/:id/edit'/>
+            {currentUser ? <RouteEditUser path='/users/:id/edit'/> : null}
+            
 
           </Router>
         </div>

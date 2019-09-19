@@ -10,10 +10,8 @@ var getEvents = () => {
 }
 
 var getCategories = () => {
-    return axios.get(urlPrefix+'/categories')
-       
+    return axios.get(urlPrefix+'/categories')      
 }
-
 
 var  addEvents = (data) => {
     return axios.post(urlPrefix+'/events',data)
