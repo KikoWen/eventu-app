@@ -23,9 +23,7 @@ class App extends Component{
     super(props)
     this.state={
       currentUser: null
- 
     }
-   
   }
 
   setCurrentUser = (user) => {
@@ -57,9 +55,9 @@ class App extends Component{
 
             <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
 
-            {(currentUser && currentUser.role=='admin') ? <RouteUsers path='/users'/> : null} 
+            {(currentUser && currentUser.role=='admin') ? <RouteUsers currentUser={currentUser} path='/users'/> : null} 
 
-            <RouteAddUser path='/users/create'/>
+            <RouteAddUser currentUser={currentUser} path='/users/create'/>
 
             {currentUser ? <RouteEditUser path='/users/:id/edit'/> : null}
             

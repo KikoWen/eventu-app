@@ -5,16 +5,21 @@ import Footer from '../Footer.jsx'
 
 class RouteAddUser extends Component{
 
+
+
     handleFormSubmit = (e) => {
         e.preventDefault();
+        // var {currentUser} = this.props
 
         var formData = new FormData(this.form);
-
+     
+      
         var data ={
             name:formData.get('name'),
             email:formData.get('email'),
             username:formData.get('username'),
             role:formData.get('role'),
+            // currentUser:currentUser
         }
 
         addUsers(data).then(res => navigate('/users'))
@@ -22,6 +27,7 @@ class RouteAddUser extends Component{
     }
 
     render(){
+        // var {currentUser} = this.props
         return(
             <div className="container">
                 <header><i className="fas fa-arrow-left"></i></header>
@@ -43,10 +49,26 @@ class RouteAddUser extends Component{
                             <div class="form-group">
                                 <label for="userrole">User role</label>
                                 <select class="form-control" id="userRole" name="userRole">
-                                <option>Admin</option>
-                                <option>Event host</option>
-                                <option>Attendee</option>
+
+                                    <option>Admin</option>
+                                    <option>Event host</option>
+                                    <option>Attendee</option>
+                     
                                 </select>
+                                {/* <select class="form-control" id="userRole" name="userRole">
+
+                                  {(currentUser && currentUser.role=='admin') ? 
+                                    <>
+                                        <option>Admin</option>
+                                        <option>Event host</option>
+                                        <option>Attendee</option>
+                                  </> :  
+                                     <>
+                                        <option>Event host</option>
+                                        <option>Attendee</option>
+                                    </>
+                                }
+                                </select> */}
                             </div>
 
                             <div className="form-group">
