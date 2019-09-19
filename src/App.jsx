@@ -1,73 +1,71 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import { Router, Link, navigate, Redirect } from "@reach/router";
 
 // import {getEvents} from './Api.jsx'; import in Component.jsx
-import RouteEvents from './RouteEvents';
-import RouteAddEvent from './RouteAddEvent';
-import RouteEditEvent from './RouteEditEvent';
-import RouteLogin from './RouteLogin.jsx';
+import RouteEvents from "./RouteEvents";
+import RouteAddEvent from "./RouteAddEvent";
+import RouteEditEvent from "./RouteEditEvent";
+import RouteLogin from "./RouteLogin.jsx";
 
-import RouteUsers from './UserComponent/RouteUsers.jsx';
-import RouteAddUser from './UserComponent/RouteAddUser.jsx';
-import RouteEditUser from './UserComponent/RouteEditUser.jsx';
+import RouteUsers from "./UserComponent/RouteUsers.jsx";
+import RouteAddUser from "./UserComponent/RouteAddUser.jsx";
+import RouteEditUser from "./UserComponent/RouteEditUser.jsx";
 
 // import music.jpg from './RouteEditEvent';
 
-import './Scss/App.scss';
-import { getSingleEvent, getSingleUser, getCategories } from './Api';
+import "./Scss/App.scss";
+import { getSingleEvent, getSingleUser, getCategories } from "./Api";
 
-var urlPrefix ='http://localhost:4000/api'; 
+var urlPrefix = "http://localhost:4000/api";
 
-class App extends Component{
-  constructor(props){
-    super(props)
-    this.state={
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       currentUser: null
+    };
+  }
+
+  setCurrentUser = user => {
+    this.setState({ currentUser: user });
+  };
+  componentDidMount() {
+    //local storage
+    var userId = localStorage.getItem("userId");
+
+    if (userId) {
+      getSingleUser(userId).then(res =>
+        this.setState({ currentUser: res.data })
+      );
     }
   }
 
-  setCurrentUser = (user) => {
-    this.setState({currentUser:user})
-  }
-  componentDidMount(){
+  render() {
+    var { currentUser } = this.state;
+    return (
+      <div>
+        <Router>
+          <RouteEvents currentUser={currentUser} path="/events" />
 
-     //local storage
-     var userId = localStorage.getItem('userId')
+          <RouteAddEvent currentUser={currentUser} path="/events/create" />
 
-     if(userId){
-       getSingleUser(userId).then(res => this.setState({currentUser:res.data}))
-     }
-  }
+          <RouteEditEvent path="/events/:id/edit/" />
 
+          <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
 
-  render(){
-    var {currentUser} = this.state
-    return(
+          {currentUser && currentUser.role == "admin" ? (
+            <RouteUsers currentUser={currentUser} path="/users" />
+          ) : null}
 
-        <div>
-          <Router>
+          <RouteAddUser currentUser={currentUser} path="/users/create" />
 
-            <RouteEvents currentUser={currentUser} path='/events'/>
-
-            <RouteAddEvent currentUser={currentUser}  path='/events/create'/>
-
-            <RouteEditEvent path='/events/:id/edit/'/>
-
-            <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
-
-            {(currentUser && currentUser.role=='admin') ? <RouteUsers currentUser={currentUser} path='/users'/> : null} 
-
-            <RouteAddUser currentUser={currentUser} path='/users/create'/>
-
-            {currentUser ? <RouteEditUser path='/users/:id/edit'/> : null}
-            
-
-          </Router>
-        </div>
+          {/* {currentUser ? ( */}
+          <RouteEditUser currentUser={currentUser} path="/users/:id/edit" />
+          {/* ) : null} */}
+        </Router>
+      </div>
     );
-  
   }
-   
 }
 
 export default App;
