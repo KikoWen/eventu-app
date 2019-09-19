@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link } from "@reach/router";
 import Event from './Event';
-import { getEvents } from './Api';
+import { getEvents, getSingleUser } from './Api';
 import Footer from './Footer.jsx';
 
 class RouteEvents extends Component{
@@ -50,9 +50,14 @@ class RouteEvents extends Component{
             //   time: '10th Oct 2019',
             //   category: 'miscellaneous',
             // }
-            ]
-          }
-      }
+            ],
+            currentUser: null
+        }
+    }
+
+    setCurrentUser = (user) => {
+        this.setState({currentUser:user})
+    }
 
       routeGetEvents = () => {
           getEvents().then(res => {
@@ -61,13 +66,21 @@ class RouteEvents extends Component{
       }
 
       componentDidMount(){
-          this.routeGetEvents();
+            this.routeGetEvents();
+            
+            var userId = localStorage.getItem('userId')
+
+             if (userId){
+                 getSingleUser(userId).then(res =>  this.setState({currentUser:res.data}))
+             }
       }
+
+      
 
     
       render(){
 
-        var {events} = this.state
+        var {events, currentUser} = this.state
         return (
             <div className="container homepage-container">
                 <div className="header">
@@ -79,7 +92,11 @@ class RouteEvents extends Component{
                         </div>
                     </div>
                     <div className="header2">
-                        <h6 className="hi-name">Hi, Kathryn</h6>
+                        <h6 className="hi-name">
+                            {
+                                currentUser? (<span>Hi, {currentUser.name}</span>) : null
+                            }
+                        </h6>
                         <div className="filter">  
                         <div className="filter">
                             <p className="filter-p">filter</p> 

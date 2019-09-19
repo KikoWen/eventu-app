@@ -48,11 +48,11 @@ class RouteLogin extends Component {
                     <h5 class="welcome">WELCOME</h5>
                     <input type="text" name="username-input" id="Username-input" placeholder="Username"/>
                     <input type="password" name="password-input" id="Password-input" placeholder="Password"/>
-                    <p>Forgot password?</p>
+                    <p class="alert">{this.state.message}</p>
                 </div>
                 
                 <button type="Sign-in" class="btn-purple">SIGN IN</button>
-                {/* <p class="alret">{this.state.message}</p> */}
+                <p class="alert">{this.state.message}</p>
             </form>
 
                 <div class="notice-for-signup">
