@@ -5,8 +5,6 @@ import Footer from '../Footer.jsx'
 
 class RouteAddUser extends Component{
 
-
-
     handleFormSubmit = (e) => {
         e.preventDefault();
         // var {currentUser} = this.props
