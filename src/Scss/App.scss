@@ -20,6 +20,8 @@ $font-family: 'Raleway', sans-serif;
 @import 'addevent';
 @import 'editevent';
 @import 'userList';
+@import 'menu';
+
 
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css';
 
@@ -35,12 +37,21 @@ $font-family: 'Raleway', sans-serif;
     overflow: hidden;
     // position: relative;
     // border:1px red solid;
+    ::-webkit-scrollbar {
+        width: 0px; 
+        background: transparent;
+    }
     .header{
         flex:0 0 auto;
     }
     .main{
         flex:1 1 auto;
         overflow-y:scroll;
+        // ::-webkit-scrollbar {
+        //     width: 0px; 
+        //     background: transparent;
+        // }
+
     }
 
     footer{
