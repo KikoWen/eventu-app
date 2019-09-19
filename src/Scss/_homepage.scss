@@ -64,6 +64,7 @@ h6 {
 
 .featured-card {
 	margin-top: 2em;
+	overflow: hidden;
 
 	// background-image: linear-gradient(165deg, rgba(0,0,0,0) 43%,$primary-color);
 	width: 86%;
@@ -101,7 +102,7 @@ h6 {
 .event-info {
 	text-align: left;
 	// margin-top: 15em;
-	padding: 0 1em;
+	padding: 0 0.8em;
 }
 
 .event-price{
@@ -122,6 +123,11 @@ h6 {
 	.fas {
 		color: white;
 	}
+}
+.card-description {
+	font-size: 1em;
+	overflow: hidden;
+	color: white;
 }
 
 p {
@@ -169,3 +175,7 @@ p {
 .category-button {
 	@include category-button;
 }
+
+// .footer{
+// 	position: fixed;
+// }

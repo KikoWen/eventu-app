@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
-import { Router, Link, navigate } from "@reach/router";
+import { Router, Link, navigate, Redirect } from "@reach/router";
 
 // import {getEvents} from './Api.jsx'; import in Component.jsx
 import RouteEvents from './RouteEvents.jsx';
 import RouteAddEvent from './RouteAddEvent.jsx';
 import RouteEditEvent from './RouteEditEvent.jsx';
 import RouteSavedEvents from './RouteSavedEvents.jsx';
+import RouteLogin from './RouteLogin.jsx';
+
+import RouteUsers from './UserComponent/RouteUsers.jsx';
+import RouteAddUser from './UserComponent/RouteAddUser.jsx';
+import RouteEditUser from './UserComponent/RouteEditUser.jsx';
+import RouteMenu from './RouteMenu';
+
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
@@ -16,10 +23,17 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state={
-      events:[]
+      // events:[]
+      currentUser:null
+ 
     }
    
   }
+  setCurrentUser = (user) => {
+    this.setState({currentUser:user})
+  }
+
+
 
   render(){
 
@@ -30,19 +44,26 @@ class App extends Component{
     //   foodDrink: '#FA6400',
     //   miscellaneous: '#E02064'
     // }
-    var {events} = this.state
+    // var {events} = this.state
     return(
 
         <div>
           <Router>
-
-            <RouteEvents path='/'/>  
 
             <RouteEvents path='/events'/>
 
             <RouteAddEvent path='/events/create'/>
 
             <RouteEditEvent path='/events/:id/edit'/>
+            <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
+
+            <RouteUsers path='/users'/>
+
+            <RouteAddUser path='/users/create'/>
+
+            <RouteEditUser path='/users/:id/edit'/>
+
+            <RouteMenu path='/menu'/>
 
             <RouteSavedEvents path='/users/:id/savedEvents'/>
 

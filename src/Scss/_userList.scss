@@ -1,0 +1,27 @@
+$font-family: 'Montserrat', sans-serif;
+.user-list{
+    .fas{
+        text-align: left;
+    }
+    font-family: $font-family;
+  .userpage-details{
+      margin: .5em 0;
+      text-align: left;
+      line-height: 1.5em;
+      border-bottom: thin grey solid;
+  }
+
+  .edit-platform{
+      display: flex; 
+      flex-direction: row-reverse;
+      margin-bottom: .3em;
+  }
+  .user-delete{
+      margin-left: 1em;
+  }
+
+  .far{
+      font-size: 1.2em;
+  }
+
+}
