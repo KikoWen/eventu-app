@@ -22,10 +22,13 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state={
-      events:[]
+      // events:[]
+ 
     }
    
   }
+
+
 
   render(){
 
@@ -36,7 +39,7 @@ class App extends Component{
     //   foodDrink: '#FA6400',
     //   miscellaneous: '#E02064'
     // }
-    var {events} = this.state
+    // var {events} = this.state
     return(
 
         <div>
