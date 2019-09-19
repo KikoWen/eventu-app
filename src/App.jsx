@@ -7,6 +7,10 @@ import RouteAddEvent from './RouteAddEvent';
 import RouteEditEvent from './RouteEditEvent';
 import RouteLogin from './RouteLogin.jsx';
 
+import RouteUsers from './UserComponent/RouteUsers.jsx';
+import RouteAddUser from './UserComponent/RouteAddUser.jsx';
+import RouteEditUser from './UserComponent/RouteEditUser.jsx';
+
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
@@ -19,12 +23,15 @@ class App extends Component{
     this.state={
       // events:[]
       currentUser:null
+ 
     }
    
   }
   setCurrentUser = (user) => {
     this.setState({currentUser:user})
   }
+
+
 
   render(){
 
@@ -35,7 +42,7 @@ class App extends Component{
     //   foodDrink: '#FA6400',
     //   miscellaneous: '#E02064'
     // }
-    var {events} = this.state
+    // var {events} = this.state
     return(
 
         <div>
@@ -47,6 +54,12 @@ class App extends Component{
 
             <RouteEditEvent path='/events/:id/edit'/>
             <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
+
+            <RouteUsers path='/users'/>
+
+            <RouteAddUser path='/users/create'/>
+
+            <RouteEditUser path='/users/:id/edit'/>
 
           </Router>
         </div>
