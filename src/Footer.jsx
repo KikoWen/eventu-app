@@ -20,7 +20,7 @@ class Footer extends Component{
                 <Link to= "/events"><i class="fas fa-home"></i></Link>
                 <Link to="/events/create"><i className="fas fa-plus"></i></Link>
                 <i class="far fa-bookmark"></i>
-                <i class="fas fa-bars"></i>
+                <Link to="/menu"><i class="fas fa-bars"></i></Link>
             </footer>
         )
     }

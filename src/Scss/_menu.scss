@@ -1,0 +1,46 @@
+
+
+.close {
+    position: fixed;
+    width: 2.25em;
+    flex: 0 0 2.25em;
+    opacity: 0.3;
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    top: 20%;
+    left: 48%;
+    content: ' ';
+    height: 2em;
+    width: 0.11em;
+    background-color: #333;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+
+  .menu-list-container{
+      flex: 1 0 auto;
+      padding-top: 3em;
+
+  }
+
+  .menu-list{
+      font-family: $font-family;
+      font-weight: 700;
+      height: 100%;
+  }
+
+  .menu-items{
+      font-size: 1.15em;
+      line-height: 3em;
+      cursor: pointer;
+      border: none;
+  }
+  
