@@ -1,24 +1,23 @@
-$font-stack:    Apple SD Gothic Neo, sans-serif;
+$font-family: 'Raleway', sans-serif;
 $primary-color: #8400d1;
 
+
+.container{
+	overflow-y: scroll !important;
+}
 header{
 	text-align: left;
 }
 
+
+
 .page-name{
-	text-align: center;
-	font-family: $font-stack;
-	letter-spacing: 0.1em;
-	display: block;
-	width: 9em;
-	margin: auto;
-	font-size: 24px;
-	margin-top: 4em;
-	margin-bottom: 2.5em;
+	text-transform: capitalize;
+
 }
 
 .fa-arrow-left{
-	font-size: 2em;
+	font-size: 1.3em;
 }
 
 .wrapper{
@@ -26,45 +25,16 @@ header{
 }
 
 .signup-contents {
-	display: flex;
-	flex-wrap: wrap;
-	width: 91%;
-	margin: auto;
+	// display: flex;
+	// flex-wrap: wrap;
+	// width: 91%;
 
 	.signup-contents-input {
-		border: 1.5px lightgrey solid;
+		border: thin lightgrey solid;
 		height: 3.5em;
 		width: 74%;
 		background-color: #F8F8F8;
 		padding: 0.5em;
-	}
-
-	#FirstName {
-		width: 50%;
-		border-top-left-radius: 0.7em;
-		border-bottom: 0.5px;
-	}
-	#LastName {
-		width: 50%;
-		border-top-right-radius: 0.7em;
-		border-bottom: 0.5px;
-		border-left: 0.5px;
-	}
-	#UserName {
-		width: 100%;
-		border-bottom: 0.5px;
-
-	}
-	#EmailAddress {
-		width: 100%;
-		border-bottom: 0.5px;
-
-	}
-	#Password {
-		width: 100%;
-		border-bottom-left-radius: 0.7em;
-		border-bottom-right-radius: 0.7em;
-
 	}
 	::placeholder {
 		font-size: 0.8em;
@@ -80,4 +50,18 @@ header{
 	border-radius: 29px;
 	margin-top: 5.5em;
 	letter-spacing: 0.1em;
+}
+
+label{
+    @include h4;
+    text-align: left !important;
+}
+
+.form-group{
+    text-align: left !important;
+}
+
+button{
+    background-color: white !important;
+    color: black !important;
 }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {addEvents,uploadFile} from './Api.jsx';
-import { navigate } from '@reach/router';
+import { navigate, Link } from '@reach/router';
+import Footer from './Footer.jsx'
 
 class RouteAddEvent extends Component{
   handleFormSubmit = (e) => {
@@ -71,14 +72,15 @@ class RouteAddEvent extends Component{
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>
         </div>
-        <div class="footer">
+        {/* <div class="footer">
           <div class="home-footer">
-            <i class="fas fa-home"></i>
+          <Link to= "/events"><i class="fas fa-home"></i></Link>
             <i class="fas fa-plus"></i>
             <i class="far fa-bookmark"></i>
             <i class="fas fa-bars"></i>
           </div>
-        </div>
+        </div> */}
+        <Footer/>
       </div>
     )
   }
