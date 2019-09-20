@@ -3,6 +3,7 @@ import { Router, Link, navigate, Redirect } from "@reach/router";
 
 // import {getEvents} from './Api.jsx'; import in Component.jsx
 import RouteEvents from './RouteEvents';
+import RouteSingleEvent from './RouteSingleEvent';
 import RouteAddEvent from './RouteAddEvent';
 import RouteEditEvent from './RouteEditEvent';
 import RouteLogin from './RouteLogin.jsx';
@@ -50,6 +51,8 @@ class App extends Component{
           <Router>
 
             <RouteEvents path='/events'/>
+
+            <RouteSingleEvent path='/events/:id'/>
 
             <RouteAddEvent path='/events/create'/>
 
