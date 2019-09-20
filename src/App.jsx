@@ -7,9 +7,10 @@ import RouteAddEvent from "./RouteAddEvent";
 import RouteEditEvent from "./RouteEditEvent";
 import RouteLogin from "./RouteLogin.jsx";
 
-import RouteUsers from "./UserComponent/RouteUsers.jsx";
-import RouteAddUser from "./UserComponent/RouteAddUser.jsx";
-import RouteEditUser from "./UserComponent/RouteEditUser.jsx";
+import RouteUsers from './UserComponent/RouteUsers.jsx';
+import RouteAddUser from './UserComponent/RouteAddUser.jsx';
+import RouteEditUser from './UserComponent/RouteEditUser.jsx';
+import RouteMenu from './RouteMenu';
 
 // import music.jpg from './RouteEditEvent';
 
@@ -62,6 +63,8 @@ class App extends Component {
           {/* {currentUser ? ( */}
           <RouteEditUser currentUser={currentUser} path="/users/:id/edit" />
           {/* ) : null} */}
+
+          <RouteMenu path='/menu'/>
         </Router>
       </div>
     );

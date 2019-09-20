@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link } from "@reach/router";
 import Event from './Event';
-import { getEvents } from './Api';
+import { getEvents, getSingleUser } from './Api';
 import Footer from './Footer.jsx';
 
 class RouteEvents extends Component{
@@ -20,8 +20,16 @@ class RouteEvents extends Component{
       }
 
       componentDidMount(){
-          this.routeGetEvents();
+            this.routeGetEvents();
+            
+            var userId = localStorage.getItem('userId')
+
+             if (userId){
+                 getSingleUser(userId).then(res =>  this.setState({currentUser:res.data}))
+             }
       }
+
+      
 
     
       render(){
