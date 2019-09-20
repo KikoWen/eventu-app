@@ -49,7 +49,7 @@ class Event extends Component {
                     
                 </div>
             </div>
-        )
+        ) 
     }
 }
 

@@ -59,4 +59,35 @@ h3{
 	border:1px red solid;
 	background-size:cover;
 	background-position: center;
+	margin-top: .8em;
+	width:100%;
+}
+
+.homepage-container{
+	position: relative;
+	.main{
+		
+	}
+
+	.filter-button{
+		position: absolute;
+		z-index: 100;
+		top:3em;
+		right: 1.5em;
+		display: block;
+		// border:thin red solid;
+		height: 2em;
+		border: none;
+		&:focus{
+			border: none;
+			outline: none;
+		}
+		
+
+		i{
+			// border:thin green solid;
+			margin-top: 0;
+		
+		}
+	}
 }

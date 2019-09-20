@@ -10,12 +10,15 @@ import RouteLogin from "./RouteLogin.jsx";
 import RouteUsers from './UserComponent/RouteUsers.jsx';
 import RouteAddUser from './UserComponent/RouteAddUser.jsx';
 import RouteEditUser from './UserComponent/RouteEditUser.jsx';
-import RouteMenu from './RouteMenu';
+
+import RouteMenu from './RouteMenu.jsx';
+import RouteSingleCategory from './RouteSingleCategory.jsx';
 
 // import music.jpg from './RouteEditEvent';
 
 import "./Scss/App.scss";
 import { getSingleEvent, getSingleUser, getCategories } from "./Api";
+
 
 var urlPrefix = "http://localhost:4000/api";
 
@@ -47,6 +50,8 @@ class App extends Component {
       <div>
         <Router>
           <RouteEvents currentUser={currentUser} path="/events" />
+
+          <RouteSingleCategory currentUser={currentUser} path ="/categories/:id" />
 
           <RouteAddEvent currentUser={currentUser} path="/events/create" />
 

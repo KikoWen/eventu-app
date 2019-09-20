@@ -1,0 +1,60 @@
+$entertainment-color: rgb(218, 18, 218);
+$wellbeing-color: rgb(35, 126, 35);
+$sport-color: rgb(40, 118, 236);
+$food-drink-color: rgb(233, 155, 10);
+$miscellaneous-color: rgb(233, 52, 82);
+
+@mixin header-categoryies-style{
+    .categories {
+      flex-basis: 1 0 95%;
+    //   border: 1px purple solid;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.9em;
+      padding: 2em 0.5em 0 0.5em;
+      margin-top: -2em;
+      & > div {
+        // border: thin black solid;
+        border-radius: 0.7em;
+        padding: 0 0.5em;
+        margin: 0.3em;
+      }
+
+      a{
+        border-radius: .5em;
+        padding: .1em .4em;
+        margin: .4em;
+        font-size: 1.2em;
+      }
+    }
+  
+    .entertainment {
+      color: $entertainment-color;
+      border: thin $entertainment-color solid;
+    }
+  
+    .wellbeing {
+      color: $wellbeing-color;
+      border: thin $wellbeing-color solid;
+    }
+    .sport {
+      color: $sport-color;
+      border: thin $sport-color solid;
+    }
+  
+    .cuisine {
+      color: $food-drink-color;
+      border: thin $food-drink-color solid;
+    }
+  
+    .miscellaneous {
+      color: $miscellaneous-color;
+      border: thin $miscellaneous-color solid;
+    }
+
+    .category-name-style{
+      font-weight: bolder;
+      text-transform: capitalize;
+    }
+  }

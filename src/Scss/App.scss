@@ -20,6 +20,7 @@ $font-family: "Raleway", sans-serif;
 @import 'editevent';
 @import 'userList';
 @import 'menu';
+@import 'category-filter';
 
 
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css";
@@ -33,6 +34,8 @@ $font-family: "Raleway", sans-serif;
   padding: 1em 2em;
   box-sizing: border-box;
   overflow: hidden;
+
+  @include  header-categoryies-style();
   
     .header{
         flex:0 0 auto;
@@ -41,6 +44,7 @@ $font-family: "Raleway", sans-serif;
         flex:1 1 auto;
         overflow-y:scroll;
         margin-bottom: 4em; 
+        // position: relative;
         ::-webkit-scrollbar {
             width: 0px; 
             background: transparent;
