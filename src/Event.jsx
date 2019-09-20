@@ -1,12 +1,22 @@
 import React, {Component} from 'react';
 import { Link, navigate } from "@reach/router";
-import { deleteEvents,serverURL } from './Api';
+import { deleteEvents,serverURL,addBookmarks } from './Api';
 
 class Event extends Component {
 
     handleTrashClick = () => {
         var {event,refreshData} = this.props
         deleteEvents(event.id).then(res => refreshData())
+       
+    }
+    handleBookmarkClick = () => {
+
+       
+        var {event,setCurrentUser, currentUser} = this.props
+   
+        addBookmarks(currentUser.id,{eventid:event.id}).then(res => {
+            setCurrentUser(res.data)
+        })
        
     }
 
@@ -20,16 +30,18 @@ class Event extends Component {
         //     miscellaneous: '#E02064'
         //   }
 
-        var {event} = this.props
+        var {event,currentUser} = this.props
 
-        return(
+        return currentUser ? (
             <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, #0091FF),url('+serverURL+event.photo+')'}}>
                 <div className="information">
                     <div className="category-noborder">
                         <button className="category">{event.category}</button>
-                        <i className="far fa-bookmark"></i>
-                        <Link to={'/events/'+event.id+'/edit'}><i className="far fa-edit"></i></Link>
-                        <i onClick={this.handleTrashClick} className="fas fa-trash"></i> 
+                        <div className="event-icon-group">
+                            {currentUser.savedEvents.includes(event.id) ? <i className="fas fa-bookmark"></i> : <i onClick={this.handleBookmarkClick}className="far fa-bookmark"></i>}
+                            <Link to={'/events/'+event.id+'/edit'}><i className="far fa-edit"></i></Link>
+                            <i onClick={this.handleTrashClick} className="fas fa-trash"></i> 
+                        </div>
                     </div>
 
                     <div className="event-info"> 
@@ -43,7 +55,7 @@ class Event extends Component {
                     
                 </div>
             </div>
-        )
+        ) : null
     }
 }
 

@@ -13,6 +13,8 @@ import RouteAddUser from './UserComponent/RouteAddUser.jsx';
 import RouteEditUser from './UserComponent/RouteEditUser.jsx';
 import RouteMenu from './RouteMenu';
 
+import {getSingleUser } from './Api';
+
 // import music.jpg from './RouteEditEvent';
 
 import './Scss/App.scss';
@@ -33,6 +35,15 @@ class App extends Component{
     this.setState({currentUser:user})
   }
 
+  componentDidMount(){
+  
+    
+    var userId = localStorage.getItem('userId')
+
+     if (userId){
+         getSingleUser(userId).then(res =>  this.setState({currentUser:res.data}))
+     }
+  }
 
 
   render(){
@@ -45,12 +56,14 @@ class App extends Component{
     //   miscellaneous: '#E02064'
     // }
     // var {events} = this.state
+
+    var {currentUser} = this.state
     return(
 
         <div>
           <Router>
 
-            <RouteEvents path='/events'/>
+            <RouteEvents currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} path='/events'/>
 
             <RouteAddEvent path='/events/create'/>
 
