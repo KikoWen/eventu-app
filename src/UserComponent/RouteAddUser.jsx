@@ -66,25 +66,12 @@ class RouteAddUser extends Component {
 
               <div class="form-group">
                 <label for="userrole">User role</label>
-                {/* <select class="form-control" id="userRole" name="userRole">
-                  <option>Admin</option>
-                  <option>Event host</option>
-                  <option>Attendee</option>
-                </select> */}
                 <select class="form-control" id="userRole" name="userRole">
-                  {currentUser && currentUser.role == "admin" ? (
-                    <>
-                      <option>Admin</option>
-                      <option>Event host</option>
-                      <option>Attendee</option>
-                    </>
-                  ) : (
-                    <>
-                      <option>Event host</option>
-                      <option>Attendee</option>
-                    </>
-                  )}
+                  {currentUser && currentUser.role == "admin" ? (<option>Admin</option>): null}
+                    <option>Event host</option>
+                    <option>Attendee</option>
                 </select>
+       
               </div>
 
               <div className="form-group">
