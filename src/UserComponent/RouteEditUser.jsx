@@ -1,92 +1,119 @@
-import React, {Component} from 'react';
-import {getSingleUser, updateUsers} from '../Api.jsx';
-import { navigate } from '@reach/router';
-import Footer from '../Footer.jsx'
+import React, { Component } from "react";
+import { getSingleUser, updateUsers } from "../Api.jsx";
+import { navigate } from "@reach/router";
+import Footer from "../Footer.jsx";
 
-class RouteEditUser extends Component{
+class RouteEditUser extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: []
+    };
+  }
 
-    constructor(props){
-        super(props)
-        this.state = {
-            user:[]
-        }
-    }
+  componentDidMount() {
+    var { id } = this.props;
+    getSingleUser(id).then(res => {
+      this.setState({ user: res.data });
+    });
+  }
 
-    componentDidMount(){
-        var {id} = this.props;
-        getSingleUser(id).then(res =>{
-            this.setState({user:res.data})
-        })
-    }
+  handleFormSubmit = e => {
+    e.preventDefault();
 
+    var formData = new FormData(this.form);
 
-    handleFormSubmit = (e) => {
-        e.preventDefault();
+    var data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      username: formData.get("username"),
+      role: formData.get("role")
+    };
 
-        var formData = new FormData(this.form);
+    var { id } = this.props;
 
-        var data ={
-            name:formData.get('name'),
-            email:formData.get('email'),
-            username:formData.get('username'),
-            role:formData.get('role'),
-        }
+    updateUsers(id, data).then(res => navigate("/users"));
+  };
 
-        var{id} =this.props;
+  render() {
+    var { name, username, email, role } = this.state.user;
+    var { currentUser } = this.props;
+    return (
+      <div className="container">
+        <header>
+          <i className="fas fa-arrow-left"></i>
+        </header>
+        <div className="main">
+          <h3 className="page-name">Edit account</h3>
 
-        updateUsers(id, data).then(res => navigate('/users'))
-   
-    }
+          <div className="signup-contents">
+            <form
+              onSubmit={this.handleFormSubmit}
+              ref={el => {
+                this.form = el;
+              }}
+            >
+              <div className="form-group">
+                <label for="name">Name</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="name"
+                  id="name"
+                  defaultValue={name}
+                />
+              </div>
 
-    render(){
-        var{name,username,email,role} = this.state.user
-        return(
-            <div className="container">
-                <header><i className="fas fa-arrow-left"></i></header>
-                <div className="main">
-                    <h3 className="page-name">Edit account</h3>
+              <div className="form-group">
+                <label for="userName">User name</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="userName"
+                  id="userName"
+                  defaultValue={username}
+                />
+              </div>
 
-                    <div className="signup-contents">
-                        <form onSubmit ={this.handleFormSubmit} ref={(el) => {this.form = el}}>
-                            <div className="form-group">
-                                <label for="name">Name</label>
-                                <input className="form-control" type="text" name="name" id="name" defaultValue={name} />    
-                            </div>
+              <div class="form-group">
+                <label for="role">User role</label>
+                <select class="form-control" id="userRole" name="userRole">
+                  {currentUser && currentUser.role == "admin" ? (<option>Admin</option>): null}
+                    <option>Event host</option>
+                    <option>Attendee</option>
+                </select>
+              </div>
 
-                            <div className="form-group">
-                                <label for="userName">User name</label>
-                                <input className="form-control" type="text" name="userName" id="userName" defaultValue={username}/>
-                            </div>
-                        
-                            <div class="form-group">
-                                <label for="role">User role</label>
-                                <select class="form-control" id="role" name="role" defaultValue={role}>
-                                <option>Admin</option>
-                                <option>Event host</option>
-                                <option>Attendee</option>
-                                </select>
-                            </div>
+              <div className="form-group">
+                <label for="email">Email</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="email"
+                  id="emailAddress"
+                  defaultValue={email}
+                />
+              </div>
 
-                            <div className="form-group">
-                                <label for="email">Email</label>
-                                <input className="form-control" type="text" name="email" id="emailAddress" defaultValue={email}/>
-                            </div>
-
-                            <div className="form-group">
-                                <label for="password">Password</label>
-                                <input className="form-control" type="password" name="password" id="password"  />
-                            </div>
-                        <button type="submit" className="btn btn-primary">Update</button>
-                    </form>
-                    </div>
-                </div>
-                <Footer/>
-            </div>
-
-            
-
-        )
-    }
+              <div className="form-group">
+                <label for="password">Password</label>
+                <input
+                  className="form-control"
+                  type="password"
+                  name="password"
+                  id="password"
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Update
+              </button>
+            </form>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default RouteEditUser;

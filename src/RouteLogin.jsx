@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {  navigate } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import {authenticate} from './Api.jsx';
 
 
@@ -16,7 +16,7 @@ class RouteLogin extends Component {
 
         var formData = new FormData(this.form);
         var data = {
-            name: formData.get('username-input'),
+            username: formData.get('username-input'),
             password: formData.get('password-input'),
         }
         
@@ -57,7 +57,8 @@ class RouteLogin extends Component {
 
                 <div class="notice-for-signup">
                     <p>Don't have an account?</p>
-                    <p class="red-text">Create new account</p>
+                    <Link to='/users/create'><p class="red-text">Create new account</p></Link>
+                    
                 </div>
                 <div class="space"></div>
                 <p class="guestlogin">Login as a guest</p>

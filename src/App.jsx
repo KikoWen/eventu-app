@@ -1,78 +1,77 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import { Router, Link, navigate, Redirect } from "@reach/router";
 
 // import {getEvents} from './Api.jsx'; import in Component.jsx
-import RouteEvents from './RouteEvents';
-import RouteSingleEvent from './RouteSingleEvent';
-import RouteAddEvent from './RouteAddEvent';
-import RouteEditEvent from './RouteEditEvent';
-import RouteLogin from './RouteLogin.jsx';
+import RouteEvents from "./RouteEvents";
+import RouteSingleEvent from "./RouteSingleEvent";
+import RouteAddEvent from "./RouteAddEvent";
+import RouteEditEvent from "./RouteEditEvent";
+import RouteLogin from "./RouteLogin.jsx";
 
 import RouteUsers from './UserComponent/RouteUsers.jsx';
 import RouteAddUser from './UserComponent/RouteAddUser.jsx';
 import RouteEditUser from './UserComponent/RouteEditUser.jsx';
 import RouteMenu from './RouteMenu';
 
-// import music.jpg from './RouteEditEvent';
+// import music.jpg from 'chec./RouteEditEvent';
 
-import './Scss/App.scss';
+import "./Scss/App.scss";
+import { getSingleEvent, getSingleUser, getCategories } from "./Api";
 
-var urlPrefix ='http://localhost:4000/api'; 
+var urlPrefix = "http://localhost:4000/api";
 
-class App extends Component{
-  constructor(props){
-    super(props)
-    this.state={
-      // events:[]
-      currentUser:null
- 
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentUser: null
+    };
+  }
+
+  setCurrentUser = user => {
+    this.setState({ currentUser: user });
+  };
+  componentDidMount() {
+    //local storage
+    var userId = localStorage.getItem("userId");
+
+    if (userId) {
+      getSingleUser(userId).then(res =>
+        this.setState({ currentUser: res.data })
+      );
     }
-   
-  }
-  setCurrentUser = (user) => {
-    this.setState({currentUser:user})
   }
 
+  render() {
+    var { currentUser } = this.state;
+    return (
+      <div>
+        <Router>
+          <RouteEvents currentUser={currentUser} path="/events" />
 
+          <RouteSingleEvent  path="/events/:id/"/>
 
-  render(){
+          <RouteAddEvent currentUser={currentUser} path="/events/create" />
 
-    // var catColors = {
-    //   sport: '#0091FF',
-    //   wellbeing: '#519607',
-    //   entertainment: '#6236FF',
-    //   foodDrink: '#FA6400',
-    //   miscellaneous: '#E02064'
-    // }
-    // var {events} = this.state
-    return(
+          <RouteEditEvent path="/events/:id/edit/" />
 
-        <div>
-          <Router>
+          <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
 
-            <RouteEvents path='/events'/>
+          {currentUser && currentUser.role == "admin" ? (
+            <RouteUsers currentUser={currentUser} path="/users" />
+          ) : null}
 
-            <RouteSingleEvent path='/events/:id'/>
+          <RouteAddUser currentUser={currentUser} path="/users/create" />
 
-            <RouteAddEvent path='/events/create'/>
+          {/* {currentUser ? ( */}
+          <RouteEditUser currentUser={currentUser} path="/users/:id/edit" />
+          {/* ) : null} */}
 
-            <RouteEditEvent path='/events/:id/edit'/>
-            <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
-
-            <RouteUsers path='/users'/>
-
-            <RouteAddUser path='/users/create'/>
-
-            <RouteEditUser path='/users/:id/edit'/>
-
-            <RouteMenu path='/menu'/>
-
-          </Router>
-        </div>
+          <RouteMenu path='/menu'/>
+        </Router>
+      </div>
     );
-  
   }
-   
 }
 
 export default App;

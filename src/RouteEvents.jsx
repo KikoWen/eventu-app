@@ -9,55 +9,9 @@ class RouteEvents extends Component{
         super(props)
 
         this.state={
-            events:[
-            //   {
-            //     name:'testing',
-            //     id: 1,
-            //     description: 'live music',
-            //     location:'3 City rd, Grafton, Auckland',
-            //     time: '10th Oct 2019',
-            //     category: 'entertainment',
-            // },
-            // {
-            //   name:'fitness',
-            //   id: 3,
-            //   description: 'gym time',
-            //   location:'3 City rd, Grafton, Auckland',
-            //   time: '10th Oct 2019',
-            //   category: 'sport'
-            // },
-            // {
-            //   name:'wellbeing',
-            //   id: 2,
-            //   description: 'meditation',
-            //   location:'3 City rd, Grafton, Auckland',
-            //   time: '10th Oct 2019',
-            //   category: 'wellbeing'
-            // },
-            // {
-            //   name:'food & drink',
-            //   id: 4,
-            //   description: 'meditation',
-            //   location:'3 City rd, Grafton, Auckland',
-            //   time: '10th Oct 2019',
-            //   category: 'foodDrink'
-            // },
-            // {
-            //   name:'exchange cloths market',
-            //   id: 5,
-            //   description: 'meditation',
-            //   location:'3 City rd, Grafton, Auckland',
-            //   time: '10th Oct 2019',
-            //   category: 'miscellaneous',
-            // }
-            ],
-            currentUser: null
-        }
-    }
-
-    setCurrentUser = (user) => {
-        this.setState({currentUser:user})
-    }
+            events:[]
+          }
+      }
 
       routeGetEvents = () => {
           getEvents().then(res => {
@@ -80,7 +34,8 @@ class RouteEvents extends Component{
     
       render(){
 
-        var {events, currentUser} = this.state
+        var {events} = this.state
+        var {currentUser} = this.props
         return (
             <div className="container homepage-container">
                 <div className="header">
@@ -92,11 +47,7 @@ class RouteEvents extends Component{
                         </div>
                     </div>
                     <div className="header2">
-                        <h6 className="hi-name">
-                            {
-                                currentUser? (<span>Hi, {currentUser.name}</span>) : null
-                            }
-                        </h6>
+                        <h6 className="hi-name">Hi {currentUser ? currentUser.name : 'Guest'}</h6>
                         <div className="filter">  
                         <div className="filter">
                             <p className="filter-p">filter</p> 
@@ -112,7 +63,8 @@ class RouteEvents extends Component{
                         var eventProps = {
                             event: event,
                             key: event.id,
-                            refreshData: this.routeGetEvents
+                            refreshData: this.routeGetEvents,
+                            currentUser:currentUser
                         }
                         return <Event {...eventProps} />
                         })

@@ -16,20 +16,26 @@ class Event extends Component {
         //     sport: '#0091FF',
         //     wellbeing: '#519607',
         //     entertainment: '#6236FF',
-        //     foodDrink: '#FA6400',
+        //     foodDrink: '#FA6400',s
         //     miscellaneous: '#E02064'
         //   }
 
-        var {event} = this.props
+        var {event, currentUser} = this.props
 
         return(
             <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, #0091FF),url('+serverURL+event.photo+')'}}>
                 <div className="information">
                     <div className="category-noborder">
                         <button className="category">{event.category}</button>
-                        <i className="far fa-bookmark"></i>
-                        <Link to={'/events/'+event.id+'/edit'}><i className="far fa-edit"></i></Link>
-                        <i onClick={this.handleTrashClick} className="fas fa-trash"></i> 
+
+                        { currentUser && currentUser.id == event.user_id ? (
+                            <>
+                            <i className="far fa-bookmark"></i>
+                            <Link to={'/events/'+event.id+'/edit'}><i className="far fa-edit"></i></Link>
+                            <i onClick={this.handleTrashClick} className="fas fa-trash"></i> 
+                            </>
+                        ) : null}
+                        
                     </div>
 
                     <div className="event-info"> 
