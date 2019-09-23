@@ -69,7 +69,7 @@ class App extends Component {
           <RouteEditUser currentUser={currentUser} path="/users/:id/edit" />
           {/* ) : null} */}
 
-          <RouteMenu path='/menu'/>
+          <RouteMenu currentUser={currentUser} path='/menu'/>
         </Router>
       </div>
     );

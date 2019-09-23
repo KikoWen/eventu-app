@@ -27,23 +27,26 @@ class RouteUsers extends Component{
         render(){
             var {users} = this.state
             return(
-                <div className="container user-list">
-                    <i className="fas fa-arrow-left"></i>
-                    <h1>User list</h1>
-                    <div className="userpage-info">
-                        {
-                            users.map(user =>{
+                <div className="main">
+                    <div className="container user-list">
+                        <Link to='/events/' className="goback"><i className="fas fa-arrow-left"></i></Link>
+                        
+                        <h1>User list</h1>
+                        <div className="userpage-info">
+                            {
+                                users.map(user =>{
 
-                                var userProps ={
-                                    user: user,
-                                    key: user.id,
-                                    refreshData: this.routeGetUsers
-                                }
-                                return<User {...userProps}/>
-                            })
-                        }
-                    </div>  
-                    <Footer/>
+                                    var userProps ={
+                                        user: user,
+                                        key: user.id,
+                                        refreshData: this.routeGetUsers
+                                    }
+                                    return<User {...userProps}/>
+                                })
+                            }
+                        </div>  
+                        <Footer/>
+                    </div>
                 </div>
             )
         }

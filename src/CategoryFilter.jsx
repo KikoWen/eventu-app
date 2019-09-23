@@ -6,6 +6,7 @@ class CategoryFilter extends Component{
         super(props);
         this.state ={
             categories:[]
+            
         }
     }
 
@@ -24,7 +25,7 @@ class CategoryFilter extends Component{
                              var categoryProps ={
                                  category:category,
                                  key:category.id,
-                                //  refreshData: this.routeGetEvents,
+                                 refreshData: this.routeGetEvents,
                                 //  color:category.color
                              }
                              return (

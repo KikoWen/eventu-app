@@ -17,12 +17,12 @@ var getSingleCategory = (id) => {
   return axios.get(urlPrefix+'/categories/'+id)      
 }
 
-var  addEvents = (data) => {
+var addEvents = (data) => {
     return axios.post(urlPrefix+'/events',data)
     
 }
 
-var  authenticate = (data) => {
+var authenticate = (data) => {
   return axios.post(urlPrefix+'/authenticate',data)          
 }
 

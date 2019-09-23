@@ -4,6 +4,8 @@ $sport-color: rgb(40, 118, 236);
 $food-drink-color: rgb(233, 155, 10);
 $miscellaneous-color: rgb(233, 52, 82);
 
+
+
 @mixin header-categoryies-style{
     .categories {
       flex-basis: 1 0 95%;
@@ -58,3 +60,4 @@ $miscellaneous-color: rgb(233, 52, 82);
       text-transform: capitalize;
     }
   }
+

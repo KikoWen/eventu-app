@@ -12,20 +12,25 @@ class RouteEvents extends Component{
         super(props)
 
         this.state={
-            events:[]
-
+            events:[],
             //------
-
             // isHidden: true,
-
              //------
+            isCategoryOn: false
           }
+          
       }
 
       routeGetEvents = () => {
           getEvents().then(res => {
               this.setState({events:res.data})
           })
+      }
+
+      handleFilterClick = () =>{
+         this.setState({
+             isCategoryOn: !this.state.isCategoryOn
+         })
       }
 
       componentDidMount(){
@@ -65,8 +70,9 @@ class RouteEvents extends Component{
                 </div>
                 <div className="main">
                         <Accordion >
-                            <Accordion.Toggle variant="link" eventKey="0" className="filter-button">
-                                filter <i class="fas fa-chevron-down"></i>
+                            <Accordion.Toggle variant="link" eventKey="0" className="filter-button" onClick ={this.handleFilterClick}>
+                                filter 
+                                { this.state.isCategoryOn ? (<i className="fas fa-chevron-up"></i>) : (<i className="fas fa-chevron-down filter-i-color"></i>)}
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="0">
                                 <CategoryFilter/>

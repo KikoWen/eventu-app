@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link, navigate } from "@reach/router";
 import { deleteEvents,serverURL } from './Api';
+import CategoryFilter from './CategoryFilter';
 
 class Event extends Component {
 
@@ -12,21 +13,14 @@ class Event extends Component {
 
     render(){
 
-        // var catColors = {
-        //     sport: '#0091FF',
-        //     wellbeing: '#519607',
-        //     entertainment: '#6236FF',
-        //     foodDrink: '#FA6400',
-        //     miscellaneous: '#E02064'
-        //   }
+        var {event, currentUser,category} = this.props
 
-        var {event, currentUser} = this.props
-
+        var color = event.category? event.category.color: '#0091FF'
         return(
-            <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, #0091FF),url('+serverURL+event.photo+')'}}>
+            <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, '+color+'),url('+serverURL+event.photo+')'}}>
                 <div className="information">
                     <div className="category-noborder">
-                        <button className="category">{event.category}</button>
+                        <button className="category">{event.category? event.category.name : null}</button>
 
                         { currentUser && currentUser.id == event.user_id ? (
                             <>

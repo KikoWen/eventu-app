@@ -2,6 +2,8 @@ import React, { Component }from 'react';
 import Event from './Event.jsx';
 import  {getSingleCategory}  from './Api.jsx';
 import Footer from './Footer.jsx';
+import CategoryFilter from './CategoryFilter.jsx';
+import Accordion from 'react-bootstrap/Accordion';
 
 class RouteSingleCategory extends Component{
     constructor(props){
@@ -25,6 +27,7 @@ class RouteSingleCategory extends Component{
         return category ?(
             <div className="container">
             <div className="main">
+
                 <h3 className="category-name-style">{category.name}</h3>
                 {
                     category.events.map((event)=>{
