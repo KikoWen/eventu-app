@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-var urlPrefix = 'http://localhost:4000/api';
-var serverURL= 'http://localhost:4000/';
+var urlPrefix = 'http://10.2.24.42:4000/api';
+var serverURL= 'http://10.2.24.42:4000/';
 
 
 var getEvents = () => {
@@ -62,6 +62,10 @@ var updateUsers = (id,data) => {
 var deleteUsers = (id) => {
   return axios.delete(urlPrefix+'/users/'+id)
 
+}
+
+var  authenticate = (data) => {
+  return axios.post(urlPrefix+'/authenticate',data)          
 }
 
 //User end
