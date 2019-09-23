@@ -49,7 +49,7 @@ class App extends Component {
         <Router>
           <RouteEvents currentUser={currentUser} path="/events" />
 
-          <RouteSingleEvent  path="/events/:id/"/>
+          <RouteSingleEvent  path="/events/:id/" currentUser={currentUser} />
 
           <RouteAddEvent currentUser={currentUser} path="/events/create" />
 

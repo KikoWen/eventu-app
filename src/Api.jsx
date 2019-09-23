@@ -18,6 +18,11 @@ var  addEvents = (data) => {
     
 }
 
+var  addReviews = (data) => {
+  return axios.post(urlPrefix+'/reviews',data)
+  
+}
+
 var  authenticate = (data) => {
   return axios.post(urlPrefix+'/authenticate',data)          
 }
@@ -88,4 +93,5 @@ export {
   authenticate,
   getCategories, 
   uploadFile,
+  addReviews,
 }
