@@ -3,20 +3,37 @@ import {addEvents,uploadFile} from './Api.jsx';
 import { navigate, Link } from '@reach/router';
 import Footer from './Footer.jsx'
 
-class RouteEventDetails extends Component{
-    
+class RouteSingleEvent extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            event:null
+        }
+    }
+
+    componentDidMount(){
+        var {id} = this.props
+
+        getSingleEvent(id).then(res=>{
+
+            this.setState({event:res.data})
+        })
+    }
       
     render(){
-      return (
+
+        var {event} = this.state
+
+      return event ? (
             <div class="container">
-                <div class="image-section">
+                <div class="image-section" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, #0091FF),url('+serverURL+event.photo+')'}}>
                     <i class="fas fa-arrow-left"></i>
                     <a class="entertainment" href="#">Entertainment</a>
                 </div>
 
                 <div class="text-contents">
                     <div class="title">
-                        <h2>Name of event</h2>
+                        <h2>{event.name}</h2>
                         <div class="icons">
                             <i class="far fa-bookmark"></i>
                             <i class="fas fa-share-square"></i>
@@ -24,31 +41,49 @@ class RouteEventDetails extends Component{
                     </div>
 
                     <div class="explanation">
-                        <p>Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut
-                            enim ad minim veniam.  <a href="">read more</a></p>
+                        <p> {event.description}  <a href="">read more</a></p>
                     </div>
 
                     <div class="date-info">
                         <div class="when">
                             <h4>When</h4>
-                            <p>12 July 3:00am</p>
+                            <p>{event.time}</p>
                         </div>
                         <div class="info where">
                             <h4>Where</h4>
-                            <p>Takapuna beach</p>
+                            <p>{event.location}</p>
                         </div>
                         <div class="info cost">
                             <h4>Cost</h4>
-                            <p>$75.00</p>
+                            <p>{event.cost}</p>
                         </div> 
+                    </div>
+                </div>
+                <div className="comment-section">
+                    <p className="pcomment-section">Comments</p>
+
+                    <div className="card comment-card">
+                        <div className="card-body">
+                            <p className="username">jimmy_xo</p>
+                            <h5 className="card-title">Can't wait!</h5>
+                            <p className="card-text comment">Bought my tickets yesterday -tickets are selling out fast</p>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
+                        </div>
+
+                    </div>
+
+                    <div className="input-group mb-3">
+                        <input type="text" className="form-control" placeholder="Add comment" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                            <div className="input-group-append">
+                                <button className="comment-button" type="button">add</button>
+                            </div>
                     </div>
                 </div>
                 <Footer/>
             </div>
-        )
+        ) : null
+      
     }
   } 
-  export default RouteEventDetails ;
+  export default RouteSingleEvent ;

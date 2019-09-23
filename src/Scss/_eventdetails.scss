@@ -102,3 +102,24 @@ body {
         text-align: left;
     }
 }
+
+.input-group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2em;
+}
+
+.form-control{
+    font-size: 14px !important;
+    border: 1px solid black;
+    border-radius: 45px;
+    padding: 0.7em 1.5em;
+    width: 14em;
+}
+
+.comment-button{
+    font-size: 14px;
+    margin-top: 0.4em;
+    color: $sport-color;
+}
