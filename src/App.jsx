@@ -7,6 +7,7 @@ import RouteSingleEvent from "./RouteSingleEvent";
 import RouteAddEvent from "./RouteAddEvent";
 import RouteEditEvent from "./RouteEditEvent";
 import RouteLogin from "./RouteLogin.jsx";
+import RouteEventDetails from "./RouteEventDetails.jsx";
 
 import RouteUsers from './UserComponent/RouteUsers.jsx';
 import RouteAddUser from './UserComponent/RouteAddUser.jsx';
@@ -49,7 +50,7 @@ class App extends Component {
         <Router>
           <RouteEvents currentUser={currentUser} path="/events" />
 
-          <RouteSingleEvent  path="/events/:id/"/>
+          <RouteEventDetails  path="/events/:id/"/>
 
           <RouteAddEvent currentUser={currentUser} path="/events/create" />
 
