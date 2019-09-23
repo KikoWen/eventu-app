@@ -1,16 +1,40 @@
 import React, { Component } from 'react';
-import { Link } from "@reach/router";
+import { Link,navigate } from "@reach/router";
 import Event from './Event';
-import { getEvents, getSingleEvent, serverURL } from './Api';
+import { getEvents, getSingleEvent, serverURL,addReviews } from './Api';
 import Footer from './Footer.jsx';
 
 class RouteSingleEvent extends Component {
 
+    
     constructor(props){
         super(props)
         this.state = {
             event:null
         }
+    }
+
+    handleFormSubmit = (e) => {
+
+
+        e.preventDefault();
+        console.log('hi')
+        var {id,currentUser} = this.props
+       var formData = new FormData(this.form);
+       
+        var data = {
+            title:formData.get('title'),
+            comment:formData.get('comment'),
+            user_id:currentUser.id,
+            event_id:id
+        }
+        console.log(data)
+        
+        addReviews(data)
+        .then(res => navigate('/events'))
+          
+     
+    
     }
 
     componentDidMount(){
@@ -22,6 +46,7 @@ class RouteSingleEvent extends Component {
         })
     }
     render() {
+        console.log('Bla')
 
         var {event} = this.state
 
@@ -67,22 +92,32 @@ class RouteSingleEvent extends Component {
                 <div className="comment-section">
                     <p className="pcomment-section">Comments</p>
 
-                    <div className="card comment-card">
-                        <div className="card-body">
-                            <p className="username">jimmy_xo</p>
-                            <h5 className="card-title">Can't wait!</h5>
-                            <p className="card-text comment">Bought my tickets yesterday -tickets are selling out fast</p>
-                            <i className="fas fa-edit"></i>
-                            <i className="fas fa-trash"></i>
-                        </div>
+                    {event.reviews.map(review=>{
 
-                    </div>
+                        return (
+                   
+                            <div className="card comment-card">
+                                <div className="card-body">
+                                    <p className="username">{review.user.name}</p>
+                                    <h5 className="card-title title">{review.title}</h5>
+                                    <p className="card-text comment">{review.comment}</p>
+                                    <i className="fas fa-edit"></i>
+                                    <i className="fas fa-trash"></i>
+                                </div>
+
+                            </div>
+
+                        )
+                    })}
 
                     <div className="input-group mb-3">
-                        <input type="text" className="form-control" placeholder="Add comment" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                        <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
+                        <input type="text" name="title" id="title" className="form-control" placeholder="Add title" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                        <input type="text" name="comment" id="comment" className="form-control" placeholder="Add comment" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
                             <div className="input-group-append">
-                                <button className="comment-button" type="button">add</button>
+                                <button type="submit" className="comment-button">add</button>
                             </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {addEvents,uploadFile} from './Api.jsx';
+import {getSingleEvent,serverURL} from './Api.jsx';
 import { navigate, Link } from '@reach/router';
 import Footer from './Footer.jsx'
 

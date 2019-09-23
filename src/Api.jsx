@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-var urlPrefix = 'http://10.2.24.42:4000/api';
-var serverURL= 'http://10.2.24.42:4000/';
+var urlPrefix = 'http://localhost:4000/api';
+var serverURL= 'http://localhost:4000/';
 
 
 var getEvents = () => {
@@ -16,6 +16,11 @@ var getCategories = () => {
 var  addEvents = (data) => {
     return axios.post(urlPrefix+'/events',data)
     
+}
+
+var  addReviews = (data) => {
+  return axios.post(urlPrefix+'/reviews',data)
+  
 }
 
 var  authenticate = (data) => {
@@ -92,4 +97,5 @@ export {
   authenticate,
   getCategories, 
   uploadFile,
+  addReviews,
 }
