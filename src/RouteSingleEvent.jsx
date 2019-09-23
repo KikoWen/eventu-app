@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "@reach/router";
 import Event from './Event';
-import { getEvents, getSingleEvent, serverURL } from './Api';
+import { getEvents, getSingleEvent, serverURL } from './Api.jsx';
 import Footer from './Footer.jsx';
 
 class RouteSingleEvent extends Component {
