@@ -4,7 +4,7 @@ import { ValidatorComponent } from 'react-form-validator-core';
 class TextValidator extends ValidatorComponent {
  
     render() {
-        const { errorMessages, validators, requiredError, validatorListener, ...rest } = this.props;
+        const { errorMessages, validators, requiredError, validatorListener,isValid, ...rest } = this.props;
  
         return (
             <div>

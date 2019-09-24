@@ -37,10 +37,11 @@ class RouteAddUser extends Component {
         : addUsers(data).then(res => navigate("/events"));
     }
 
-    
-
+  
     // addUsers(data).then(res => navigate("/users"));
-  };handleInputChange = (e) => {
+  }
+  
+  handleInputChange = (e) => {
       var value = e.target.value
       var inputName = e.target.name
   
@@ -49,15 +50,17 @@ class RouteAddUser extends Component {
       stateData[inputName] = value
   
       this.setState(stateData)
-    }
+      console.log(stateData)
+  }
 
-    formError = (inputs) => {
-      console.log(inputs)
+  formError = (inputs) => {
+    console.log(inputs)
     
-    }
+  }
 
   render() {
     var { currentUser } = this.props;
+    var { name, username, password, email } = this.state;
     return (
       <div className="container">
         <header>
@@ -80,22 +83,24 @@ class RouteAddUser extends Component {
                   type="text"
                   name="name"
                   id="name"
+                  value={name}
                   onChange={this.handleInputChange}
-                  validators={['required','isEmail']}
-                  errorMessages={['this field is required', 'Name is not valid']}
+                  validators={['required']}
+                  errorMessages={['this field is required']}
                 />
               </div>
 
               <div className="form-group">
-                <label for="userName">User name</label>
+                <label for="username">User name</label>
                 <TextValidator
                   className="form-control"
                   type="text"
-                  name="userName"
-                  id="userName"
+                  name="username"
+                  id="username"
+                  value={username}
                   onChange={this.handleInputChange}
-                  validators={['required','isEmail']}
-                  errorMessages={['this field is required', 'Username is not valid']}
+                  validators={['required']}
+                  errorMessages={['this field is required']}
                 />
               </div>
 
@@ -116,6 +121,7 @@ class RouteAddUser extends Component {
                   type="text"
                   name="email"
                   id="emailAddress"
+                  value={email}
                   onChange={this.handleInputChange}
                   validators={['required','isEmail']}
                   errorMessages={['this field is required', 'Email is not valid']}
