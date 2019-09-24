@@ -16,7 +16,6 @@ class RouteAddUser extends Component {
       email: formData.get("email"),
       username: formData.get("username"),
       role: formData.get("role")
-      // currentUser:currentUser
     };
 
     {
@@ -24,8 +23,6 @@ class RouteAddUser extends Component {
         ? addUsers(data).then(res => navigate("/users"))
         : addUsers(data).then(res => navigate("/events"));
     }
-
-    // addUsers(data).then(res => navigate("/users"));
   };
 
   render() {
