@@ -1,9 +1,9 @@
 import React, { Component }from 'react';
 import Event from './Event.jsx';
-import  {getSingleCategory}  from './Api.jsx';
+import {Link} from "@reach/router";
+import  {getSingleCategory, getCategories}  from './Api.jsx';
 import Footer from './Footer.jsx';
 import CategoryFilter from './CategoryFilter.jsx';
-import Accordion from 'react-bootstrap/Accordion';
 
 class RouteSingleCategory extends Component{
     constructor(props){
@@ -22,13 +22,32 @@ class RouteSingleCategory extends Component{
         this.routeGetCategory(id)
     }
 
+    componentDidUpdate(prevProps){
+        var {id} = this.props
+        if(prevProps.id != id){
+            this.routeGetCategory(id)
+        }
+    }
+
     render(){
         var {category} =this.state
+        var {currentUser} = this.props
         return category ?(
-            <div className="container">
-            <div className="main">
+            <div className="container category-filter">
+                <div className="header"> 
+                <div className="header1"> 
+                    <Link to='/events'><i className="fas fa-arrow-left"></i></Link>
+                </div>
+                <div className="header2">
+                    <h6 className="hi-name">Hi {currentUser ? currentUser.name : 'Guest'}</h6>
+                </div>
+                
+                </div>
 
-                <h3 className="category-name-style">{category.name}</h3>
+            <div className="main">
+                <CategoryFilter/>
+
+                <h3 className="category-name-style" style={{color:category.color}}>{category.name}</h3>
                 {
                     category.events.map((event)=>{
 

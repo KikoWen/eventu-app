@@ -65,9 +65,6 @@ h3{
 
 .homepage-container{
 	position: relative;
-	.main{
-		
-	}
 
 	.filter-button{
 		position: absolute;
@@ -75,7 +72,6 @@ h3{
 		top:3em;
 		right: 1.5em;
 		display: block;
-		// border:thin red solid;
 		height: 2em;
 		border: none;
 		&:focus{
@@ -85,7 +81,6 @@ h3{
 		
 
 		i{
-			// border:thin green solid;
 			margin-top: 0;
 		
 		}

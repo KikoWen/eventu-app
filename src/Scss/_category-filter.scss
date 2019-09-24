@@ -30,34 +30,32 @@ $miscellaneous-color: rgb(233, 52, 82);
         font-size: 1.2em;
       }
     }
-  
-    .entertainment {
-      color: $entertainment-color;
-      border: thin $entertainment-color solid;
-    }
-  
-    .wellbeing {
-      color: $wellbeing-color;
-      border: thin $wellbeing-color solid;
-    }
-    .sport {
-      color: $sport-color;
-      border: thin $sport-color solid;
-    }
-  
-    .cuisine {
-      color: $food-drink-color;
-      border: thin $food-drink-color solid;
-    }
-  
-    .miscellaneous {
-      color: $miscellaneous-color;
-      border: thin $miscellaneous-color solid;
-    }
-
     .category-name-style{
       font-weight: bolder;
       text-transform: capitalize;
     }
   }
+
+  .accordion{
+    text-align: right;
+    margin-bottom: 1em;
+  }
+  .category-filter{
+    .filter-button{
+      padding-right: 0em;
+      border: none;
+        &:focus{
+          border: none;
+          outline: none;
+        }
+
+      i{
+        margin-top: 0;
+      
+      }
+    }
+
+  }
+
+  
 

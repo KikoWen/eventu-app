@@ -4,6 +4,7 @@ import Event from './Event';
 import { getEvents, getSingleUser } from './Api';
 import Footer from './Footer.jsx';
 import CategoryFilter from './CategoryFilter.jsx';
+
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 
@@ -13,9 +14,6 @@ class RouteEvents extends Component{
 
         this.state={
             events:[],
-            //------
-            // isHidden: true,
-             //------
             isCategoryOn: false
           }
           
@@ -43,12 +41,6 @@ class RouteEvents extends Component{
              }
       }
 
-    //   toggleHidden () {
-    //     this.setState({
-    //       isHidden: !this.state.isHidden
-    //     })
-    //   }
-
       render(){
 
         var {events} = this.state
@@ -69,15 +61,7 @@ class RouteEvents extends Component{
                     
                 </div>
                 <div className="main">
-                        <Accordion >
-                            <Accordion.Toggle variant="link" eventKey="0" className="filter-button" onClick ={this.handleFilterClick}>
-                                filter 
-                                { this.state.isCategoryOn ? (<i className="fas fa-chevron-up"></i>) : (<i className="fas fa-chevron-down filter-i-color"></i>)}
-                            </Accordion.Toggle>
-                            <Accordion.Collapse eventKey="0">
-                                <CategoryFilter/>
-                            </Accordion.Collapse>
-                        </Accordion>
+                    <CategoryFilter/>
                     {
                         events.map(event => {
 
@@ -98,15 +82,6 @@ class RouteEvents extends Component{
         )
       }
     }
-
-    // onClick={this.toggleHidden.bind(this)}
-
-    // {!this.state.isHidden && }
-
-    // const Child = () => (
-    //     <div className='modal'>
-    //       </div>
-    //     )
     
     export default RouteEvents ;
     

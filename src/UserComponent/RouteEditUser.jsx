@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getSingleUser, updateUsers } from "../Api.jsx";
+import {Link} from "@reach/router";
 import { navigate } from "@reach/router";
 import Footer from "../Footer.jsx";
 
@@ -41,7 +42,7 @@ class RouteEditUser extends Component {
     return (
       <div className="container">
         <header>
-          <i className="fas fa-arrow-left"></i>
+          <Link to='/events'><i class="fas fa-arrow-left"></i></Link>
         </header>
         <div className="main">
           <h3 className="page-name">Edit account</h3>

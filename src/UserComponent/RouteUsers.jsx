@@ -27,10 +27,12 @@ class RouteUsers extends Component{
         render(){
             var {users} = this.state
             return(
-                <div className="main">
-                    <div className="container user-list">
+                <div className="container">
+                    <div className="header">
                         <Link to='/events/' className="goback"><i className="fas fa-arrow-left"></i></Link>
-                        
+                    </div>
+                <div className="main">
+                    <div className="user-list">
                         <h1>User list</h1>
                         <div className="userpage-info">
                             {
@@ -47,6 +49,7 @@ class RouteUsers extends Component{
                         </div>  
                         <Footer/>
                     </div>
+                </div>
                 </div>
             )
         }

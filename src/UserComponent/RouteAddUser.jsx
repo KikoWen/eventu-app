@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { addUsers, uploadFile } from "../Api.jsx";
 import { navigate } from "@reach/router";
 import Footer from "../Footer.jsx";
+import {Link} from "@reach/router";
 
 class RouteAddUser extends Component {
   handleFormSubmit = e => {
@@ -32,7 +33,7 @@ class RouteAddUser extends Component {
     return (
       <div className="container">
         <header>
-          <i className="fas fa-arrow-left"></i>
+          <Link to="/events"><i className="fas fa-arrow-left"></i></Link>
         </header>
         <div className="main">
           <h3 className="page-name">create new account</h3>
