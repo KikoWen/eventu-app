@@ -56,11 +56,13 @@ h3{
 	}
 }
 .featured-card{
-	border:1px red solid;
+	// border:1px red solid;
 	background-size:cover;
 	background-position: center;
 	margin-top: .8em;
 	width:100%;
+	box-shadow: -1px 13px 24px -16px rgba(0,0,0,0.43);
+
 }
 
 .homepage-container{
