@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Router, Link, navigate, Redirect } from "@reach/router";
 
-// import {getEvents} from './Api.jsx'; import in Component.jsx
 import RouteEvents from "./RouteEvents";
 import RouteSingleEvent from "./RouteSingleEvent";
 import RouteAddEvent from "./RouteAddEvent";
@@ -15,8 +14,6 @@ import RouteEditUser from './UserComponent/RouteEditUser.jsx';
 
 import RouteMenu from './RouteMenu.jsx';
 import RouteSingleCategory from './RouteSingleCategory.jsx';
-
-// import music.jpg from 'chec./RouteEditEvent';
 
 import "./Scss/App.scss";
 import { getSingleEvent, getSingleUser, getCategories } from "./Api";
@@ -36,7 +33,7 @@ class App extends Component {
     this.setState({ currentUser: user });
   };
   componentDidMount() {
-    //local storage
+
     var userId = localStorage.getItem("userId");
 
     if (userId) {
@@ -53,11 +50,9 @@ class App extends Component {
         <Router>
           <RouteEvents currentUser={currentUser} path="/events" />
 
-<<<<<<< HEAD
           <RouteSingleEvent  path="/events/:id/" currentUser={currentUser} />
-=======
+
           <RouteSingleCategory currentUser={currentUser} path ="/categories/:id" />
->>>>>>> kiko-category-filter
 
           <RouteAddEvent currentUser={currentUser} path="/events/create" />
 

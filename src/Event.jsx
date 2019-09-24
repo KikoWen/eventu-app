@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Link, navigate } from "@reach/router";
 import { deleteEvents,serverURL } from './Api';
-import CategoryFilter from './CategoryFilter';
 
 class Event extends Component {
 

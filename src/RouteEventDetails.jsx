@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {getSingleEvent,serverURL} from './Api.jsx';
-import { navigate, Link } from '@reach/router';
 import Footer from './Footer.jsx'
 
 class RouteSingleEvent extends Component{

@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
-import {Link } from "@reach/router";
 import Event from './Event';
 import { getEvents, getSingleUser } from './Api';
 import Footer from './Footer.jsx';
 import CategoryFilter from './CategoryFilter.jsx';
-
-import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
 
 class RouteEvents extends Component{
     constructor(props){

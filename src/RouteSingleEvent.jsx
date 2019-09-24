@@ -64,7 +64,7 @@ class RouteSingleEvent extends Component {
         var {event} = this.state
 
         return event ? (
-            <div className="container">
+            <div className="container single-event-container">
                 <div className="mainevent-section">
                     <div className="image-section" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, #0091FF),url('+serverURL+event.photo+')'}}>
                         <i className="fas fa-arrow-left"></i>
