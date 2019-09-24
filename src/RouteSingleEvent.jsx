@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link,navigate } from "@reach/router";
 import Event from './Event';
-import { getEvents, getSingleEvent, serverURL,addReviews } from './Api';
+import { getEvents, deleteReviews, getSingleEvent, serverURL,addReviews } from './Api';
 import Footer from './Footer.jsx';
 
 class RouteSingleEvent extends Component {
@@ -19,7 +19,7 @@ class RouteSingleEvent extends Component {
 
         e.preventDefault();
         console.log('hi')
-        var {id,currentUser} = this.props
+        var {id,currentUser,review} = this.props
        var formData = new FormData(this.form);
        
         var data = {
@@ -31,13 +31,21 @@ class RouteSingleEvent extends Component {
         console.log(data)
         
         addReviews(data)
-        .then(res => navigate('/events'))
+        .then(res => this.loadSingleEvent())
           
      
     
     }
 
-    componentDidMount(){
+    handleTrashClick = (e) => {
+        var reviewId = e.target.dataset.reviewid
+        var {refreshData} = this.props
+        console.log(reviewId)
+        deleteReviews(reviewId).then(res => this.loadSingleEvent())
+       
+    }
+
+    loadSingleEvent = () => {
         var {id} = this.props
 
         getSingleEvent(id).then(res=>{
@@ -45,6 +53,11 @@ class RouteSingleEvent extends Component {
             this.setState({event:res.data})
         })
     }
+
+    componentDidMount(){
+        this.loadSingleEvent()
+    }
+
     render() {
         console.log('Bla')
 
@@ -101,8 +114,7 @@ class RouteSingleEvent extends Component {
                                     <p className="username">{review.user.name}</p>
                                     <h5 className="card-title title">{review.title}</h5>
                                     <p className="card-text comment">{review.comment}</p>
-                                    <i className="fas fa-edit"></i>
-                                    <i className="fas fa-trash"></i>
+                                    <i onClick={this.handleTrashClick} data-reviewid={review.id} className="fas fa-trash"></i>
                                 </div>
 
                             </div>

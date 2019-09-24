@@ -18,11 +18,6 @@ var  addEvents = (data) => {
     
 }
 
-var  addReviews = (data) => {
-  return axios.post(urlPrefix+'/reviews',data)
-  
-}
-
 var  authenticate = (data) => {
   return axios.post(urlPrefix+'/authenticate',data)          
 }
@@ -82,6 +77,21 @@ var uploadFile = (formData) => {
 
 }
 
+//Comment/Review CRUD 
+
+var  addReviews = (data) => {
+  return axios.post(urlPrefix+'/reviews',data)
+  
+}
+
+var deleteReviews = (id) => {
+  return axios.delete(urlPrefix+'/reviews/'+id)
+
+}
+
+
+
+
 export {
   serverURL, 
   getEvents,
@@ -98,4 +108,5 @@ export {
   getCategories, 
   uploadFile,
   addReviews,
+  deleteReviews
 }
