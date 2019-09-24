@@ -13,12 +13,16 @@ var getCategories = () => {
     return axios.get(urlPrefix+'/categories')      
 }
 
-var  addEvents = (data) => {
+var getSingleCategory = (id) => {
+  return axios.get(urlPrefix+'/categories/'+id)      
+}
+
+var addEvents = (data) => {
     return axios.post(urlPrefix+'/events',data)
     
 }
 
-var  authenticate = (data) => {
+var authenticate = (data) => {
   return axios.post(urlPrefix+'/authenticate',data)          
 }
 
@@ -106,6 +110,7 @@ export {
   deleteUsers,
   authenticate,
   getCategories, 
+  getSingleCategory, 
   uploadFile,
   addReviews,
   deleteReviews

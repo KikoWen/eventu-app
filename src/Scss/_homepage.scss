@@ -1,5 +1,7 @@
 $font-family: 'Montserrat', sans-serif;
 $primary-color: #2d2b88;
+$wellbeing-color: #519607;
+
 @import 'mixins';
 
 h1 {
@@ -17,6 +19,7 @@ h6 {
 
 .hi-name {
 	font-weight: 600;
+	font-style: italic;
 }
 
 // .container will override any other modules that use the same '.container' selector. Change to '.homepage-container'
@@ -55,7 +58,7 @@ h6 {
 		padding-left: 3em;
 
 		.fas {
-			padding-left: 0.5em;
+			padding-left: 0.5em ;
 			color: #0091ff;
 			font-size: 1.5em;
 		}
@@ -176,6 +179,15 @@ p {
 	@include category-button;
 }
 
-// .footer{
-// 	position: fixed;
-// }
+
+.accordion{
+	i{
+		margin-left: .5em;
+		transition: all ease .5s;
+	}	
+	.fa-chevron-up{
+		color: $wellbeing-color;
+	}
+}
+
+

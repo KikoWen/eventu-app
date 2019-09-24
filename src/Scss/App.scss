@@ -22,6 +22,7 @@ $font-family: "Raleway", sans-serif;
 @import 'userList';
 @import 'menu';
 @import 'eventdetails';
+@import 'category-filter';
 
 
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css";
@@ -35,6 +36,8 @@ $font-family: "Raleway", sans-serif;
   padding: 1em 2em;
   box-sizing: border-box;
   overflow: hidden;
+
+  @include  header-categoryies-style();
   
     .header{
         flex:0 0 auto;
@@ -51,7 +54,6 @@ $font-family: "Raleway", sans-serif;
     }
 
     footer{
-        // border: thin red solid;
         width: 100vw;
         padding: 1.5em;
         position: absolute;

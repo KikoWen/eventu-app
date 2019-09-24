@@ -13,23 +13,23 @@ class User extends Component{
     render(){
         var{user} =this.props
         return(
-           
-            <div className="userpage-details">
-                <div className="user-name">{user.name}</div>
-                <div className="user-email">{user.email}</div>
-                <div className="user-role">{user.role}</div>
-                <div className="edit-platform">
-                    <div className="user-delete">
-                        <i onClick={this.handleTrashClick} className="far fa-trash-alt"></i>
-                        </div>
-                    <div className="user-edit">
-                        <Link to={'/users/'+ user.id+'/edit'}>
-                            <i className="far fa-edit"></i>
-                        </Link>
-                        </div>
-                
+                <div className="userpage-details">
+                    <div className="label"> Name: {user.name}</div>
+                    <div className="label"> Username: {user.username}</div>
+                    <div className="label">Email: {user.email}</div>
+                    <div className="label">Role: {user.role}</div>
+                    <div className="edit-platform">
+                        <div className="user-delete">
+                            <i onClick={this.handleTrashClick} className="far fa-trash-alt"></i>
+                            </div>
+                        <div className="user-edit">
+                            <Link to={'/users/'+ user.id+'/edit'}>
+                                <i className="far fa-edit"></i>
+                            </Link>
+                            </div>
+                    
+                    </div>
                 </div>
-            </div>
         )
     }
 }

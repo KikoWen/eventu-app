@@ -3,20 +3,32 @@ import {Link } from "@reach/router";
 import Event from './Event';
 import { getEvents, getSingleUser } from './Api';
 import Footer from './Footer.jsx';
+import CategoryFilter from './CategoryFilter.jsx';
+
+import Accordion from 'react-bootstrap/Accordion';
+import Card from 'react-bootstrap/Card';
 
 class RouteEvents extends Component{
     constructor(props){
         super(props)
 
         this.state={
-            events:[]
+            events:[],
+            isCategoryOn: false
           }
+          
       }
 
       routeGetEvents = () => {
           getEvents().then(res => {
               this.setState({events:res.data})
           })
+      }
+
+      handleFilterClick = () =>{
+         this.setState({
+             isCategoryOn: !this.state.isCategoryOn
+         })
       }
 
       componentDidMount(){
@@ -29,9 +41,6 @@ class RouteEvents extends Component{
              }
       }
 
-      
-
-    
       render(){
 
         var {events} = this.state
@@ -48,15 +57,11 @@ class RouteEvents extends Component{
                     </div>
                     <div className="header2">
                         <h6 className="hi-name">Hi {currentUser ? currentUser.name : 'Guest'}</h6>
-                        <div className="filter">  
-                        <div className="filter">
-                            <p className="filter-p">filter</p> 
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        </div>
                     </div>
+                    
                 </div>
                 <div className="main">
+                    <CategoryFilter/>
                     {
                         events.map(event => {
 

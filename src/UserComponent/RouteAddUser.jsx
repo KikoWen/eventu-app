@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { addUsers, uploadFile } from "../Api.jsx";
 import { navigate } from "@reach/router";
 import Footer from "../Footer.jsx";
+import {Link} from "@reach/router";
 
 import { ValidatorForm } from 'react-form-validator-core';
 import TextValidator from './TextValidator';
@@ -28,7 +29,6 @@ class RouteAddUser extends Component {
       email: formData.get("email"),
       username: formData.get("username"),
       role: formData.get("role")
-      // currentUser:currentUser
     };
 
     {
@@ -57,14 +57,14 @@ class RouteAddUser extends Component {
     console.log(inputs)
     
   }
-
+  
   render() {
     var { currentUser } = this.props;
     var { name, username, password, email } = this.state;
     return (
       <div className="container">
         <header>
-          <i className="fas fa-arrow-left"></i>
+          <Link to="/events"><i className="fas fa-arrow-left"></i></Link>
         </header>
         <div className="main">
           <h3 className="page-name">create new account</h3>

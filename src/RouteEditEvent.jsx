@@ -58,7 +58,7 @@ class RouteEditEvent extends Component{
                       <option>Entertainment</option>
                       <option>Wellbeing</option>
                       <option>Sport</option>
-                      <option>Food & Drink</option>
+                      <option>Cuisine</option>
                       <option>Miscellaneous</option>
                     </select>
                   </div>
@@ -69,7 +69,7 @@ class RouteEditEvent extends Component{
                 </div>
                 <div className="form-group">
                   <label htmlFor="eventDescription">Event Description</label>
-                  <textarea className="form-control" name="eventDescription" id="eventDescription" rows="4" defaultValue={description}/>
+                  <input className="form-control event-description" name="eventDescription" id="eventDescription" rows="4" defaultValue={description}/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="uploadPhoto">Upload Photo</label>
