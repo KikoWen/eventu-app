@@ -40,12 +40,12 @@ class RouteAddEvent extends Component{
           <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
             <div class="form-group">
               <label for="eventName">Event Name</label>
-              <input type="text" class="form-control" name="eventName" id="eventName"/>
+              <input type="text" class="form-control2" name="eventName" id="eventName"/>
             </div>
             <div class="event-type-and-location">
               <div class="form-group">
                 <label for="eventType">Event Type</label>
-                <select class="form-control" id="eventType" name="eventType">
+                <select class="form-control2" id="eventType" name="eventType">
                   <option>Entertainment</option>
                   <option>Wellbeing</option>
                   <option>Sport</option>
@@ -55,12 +55,12 @@ class RouteAddEvent extends Component{
               </div>
               <div className="form-group">
                 <label for="eventLocation">Event Location</label>
-                <input type="text" class="form-control" name="eventLocation" id="eventLocation"/>
+                <input type="text" class="form-control2" name="eventLocation" id="eventLocation"/>
               </div>
             </div>
             <div class="form-group">
               <label for="eventDescription">Event Description</label>
-              <textarea class="form-control" name="eventDescription" id="eventDescription" rows="4"></textarea>
+              <textarea class="form-control2" name="eventDescription" id="eventDescription" rows="4"></textarea>
             </div>
             <div class="form-group">
               <label for="uploadPhoto">Upload Photo</label>
@@ -68,19 +68,12 @@ class RouteAddEvent extends Component{
             </div>
             <div class="form-group">
               <label for="ticketPrice">Ticket Price</label>
-              <input type="text" class="form-control" name="ticketPrice" id="ticketPrice"/>
+              <input type="text" class="form-control2" name="ticketPrice" id="ticketPrice"/>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary" id="Submit">Submit</button>
           </form>
         </div>
-        {/* <div class="footer">
-          <div class="home-footer">
-          <Link to= "/events"><i class="fas fa-home"></i></Link>
-            <i class="fas fa-plus"></i>
-            <i class="far fa-bookmark"></i>
-            <i class="fas fa-bars"></i>
-          </div>
-        </div> */}
+        
         <Footer/>
       </div>
     )

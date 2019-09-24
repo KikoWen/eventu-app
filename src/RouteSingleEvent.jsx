@@ -21,6 +21,7 @@ class RouteSingleEvent extends Component {
             this.setState({event:res.data})
         })
     }
+    
     render() {
 
         var {event} = this.state
