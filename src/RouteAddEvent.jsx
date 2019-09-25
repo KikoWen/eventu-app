@@ -31,9 +31,7 @@ class RouteAddEvent extends Component{
   render(){
     return (
       <div class="container addevent-container">
-        <div class="header">
-                
-        </div>
+        
         
         <div class="main">
           <h2>Add event</h2>

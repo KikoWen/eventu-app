@@ -30,6 +30,8 @@ h6 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	padding: 1.2em;
+	height: 10vh;
 }
 
 .header1 {
@@ -116,12 +118,13 @@ h6 {
 		font-size: 0.4em;
 		font-size: 1em;
 	}
-	.event-date {
-		margin-right: 1em;
-	}
+	// .event-date {
+	// 	margin-right: 1em;
+	// }
 
 	.fas {
 		color: white;
+		margin-right: 0.3em;
 	}
 }
 .card-description {
