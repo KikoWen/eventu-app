@@ -48,29 +48,33 @@ body {
 }
 
 .text-contents {
-    padding: 0 1.7em;
     font-family: $font-family;
 
     .title {
+        padding: 0;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 2em;
+        margin-bottom: 2em;
+
+        .eventpage-name{
+            margin: 0;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .eventpage-icons{
+            width: 7em;
+        }
     }
-    .icons {
-        margin-left: 5em;
-    }
-    i {
-        font-size: 1.3em;
-        margin-left: 13px;
-    }
-    
 
     .explanation {
         font-weight: 500;
-
-        p {
+        margin-bottom: 6em;
+        .eventpage-p {
             margin:0;
-            font-size: 18px;
+            font-size: 16px;
             color: black;
             text-align: left;
         } 
@@ -84,7 +88,7 @@ body {
 
     .date-info {
         display: flex;
-        margin-top: 2em;
+        justify-content: space-between;
     }
     .info {
         padding-left: 1em;

@@ -75,7 +75,7 @@ class App extends Component {
           <RouteEditUser currentUser={currentUser} path="/users/:id/edit" />
           {/* ) : null} */}
 
-          <RouteSavedEvents path='/users/:id/savedEvents'/>
+          <RouteSavedEvents currentUser={currentUser}  path='/users/:id/savedEvents'/>
 
           <RouteMenu currentUser={currentUser} path='/menu'/>
           
