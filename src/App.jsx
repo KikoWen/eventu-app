@@ -51,8 +51,7 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <RouteEvents currentUser={currentUser} path="/events" />
-
+     
           <RouteSingleEvent  path="/events/:id/" currentUser={currentUser} />
 
           <RouteEvents currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} path='/events'/>

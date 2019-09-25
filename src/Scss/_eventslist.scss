@@ -50,18 +50,24 @@ h3{
 
 .category-noborder{
 	display: flex;
+	flex-wrap: wrap;
 	align-items: flex-end;
+	position: relative;
 	.event-icon-group{
+		position: absolute;
 		display: flex;
 		justify-content: space-between;
-		flex: 1 0 auto;
 		padding: 0 0.75em;
+		bottom: 0;
+		right: 0;
 	}
 	i{
 		display: block;
 		color: white;
 		font-size: 1.2em;
+		margin: 0 0.5em;
 	}
+
 }
 .featured-card{
 	// border:1px red solid;
@@ -70,7 +76,6 @@ h3{
 	margin-top: .8em;
 	width:100%;
 	box-shadow: -1px 13px 24px -16px rgba(0,0,0,0.43);
-
 }
 
 .homepage-container{
@@ -94,5 +99,33 @@ h3{
 			margin-top: 0;
 		
 		}
+	}
+}
+
+.event-info{
+	.event-title{
+		text-align: left;
+		color: white;
+		font-size: 1.1em;
+	}
+	.event-details-btn{
+		display: inline;
+		color: white;
+		border: none;
+		padding: 0.25em 0.75em;
+		margin: 0;
+		font-size: 0.85em;
+		border-radius: 0.5em;
+		text-decoration: none;
+		text-align: center;
+		cursor: pointer;
+		&:focus{
+			outline:none;
+			border: none;
+		}
+	}
+	.event-price{
+		color: white;
+		font-weight: 700;
 	}
 }
