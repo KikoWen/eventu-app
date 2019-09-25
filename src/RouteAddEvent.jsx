@@ -58,7 +58,7 @@ class RouteAddEvent extends Component{
               <div class="form-group">
                 <label for="eventType">Event Type</label>
 
-                <select class="form-control" id="eventType" name="eventType">
+                <select class="form-control2" id="eventType" name="eventType">
                   {
                         this.state.categories.map( category => {
                             return <option value={category.id} key={category.id}>{category.name}</option>

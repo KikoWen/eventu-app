@@ -45,6 +45,11 @@ label{
 
 .form-group{
     text-align: left !important;
+    // flex: 0 83%;
+}
+
+.form-group2 {
+    flex: 0 80%;
 }
 
 button{
@@ -80,6 +85,10 @@ form {
 #eventDescription {
     width: 100%;
     height: 30%;
+}
+
+#eventLocation {
+    width: 100%;
 }
 
 #uploadPhoto {
