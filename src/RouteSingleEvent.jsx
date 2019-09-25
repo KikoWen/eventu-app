@@ -112,7 +112,7 @@ class RouteSingleEvent extends Component {
                    
                             <div className="card comment-card">
                                 <div className="card-body">
-                                    <p className="username">{review.user.name}</p>
+                                    <p className="username">{review.user_id.name}</p>
                                     <h5 className="card-title title">{review.title}</h5>
                                     <p className="card-text comment">{review.comment}</p>
                                     <i onClick={this.handleTrashClick} data-reviewid={review.id} className="fas fa-trash"></i>

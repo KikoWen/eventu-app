@@ -6,8 +6,10 @@ $primary-color: #2d2b88;
 $secondary-color: #333;
 $entertainment-color: #6236ff;
 $wellbeing-color: #519607;
-$sport-color: #0091ff;
-$flood-color: #fa6400;
+$sport-color: #0091FF;
+$flood-color: #FA6400;
+$light-gray: #9a9db0;
+$font-family: 'Raleway', sans-serif;
 $misc-color: #e02064;
 $font-family: "Raleway", sans-serif;
 
@@ -19,8 +21,9 @@ $font-family: "Raleway", sans-serif;
 @import 'singleevent';
 @import 'addevent';
 @import 'editevent';
-@import 'userList';
 @import 'menu';
+@import 'savedEvents';
+@import 'userList';
 @import 'eventdetails';
 @import 'category-filter';
 

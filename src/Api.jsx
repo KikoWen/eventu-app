@@ -68,6 +68,17 @@ var deleteUsers = (id) => {
 
 }
 
+var addBookmarks= (userId,data) => {
+  return axios.post(urlPrefix+'/users/'+userId+'/saved-events',data)
+  
+}
+
+var deleteBookmarks= (userId,eventId) => {
+  return axios.delete(urlPrefix+'/users/'+userId+'/saved-events/'+eventId)
+  
+}
+
+
 var  authenticate = (data) => {
   return axios.post(urlPrefix+'/authenticate',data)          
 }
@@ -112,6 +123,8 @@ export {
   getCategories, 
   getSingleCategory, 
   uploadFile,
+  addBookmarks,
+  deleteBookmarks,
   addReviews,
-  deleteReviews
+  deleteReviews,
 }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Router, Link, navigate, Redirect } from "@reach/router";
 
+// import {getEvents} from './Api.jsx'; import in Component.jsx
+import RouteSavedEvents from './RouteSavedEvents.jsx';
 import RouteEvents from "./RouteEvents";
 import RouteSingleEvent from "./RouteSingleEvent";
 import RouteAddEvent from "./RouteAddEvent";
@@ -12,6 +14,7 @@ import RouteUsers from './UserComponent/RouteUsers.jsx';
 import RouteAddUser from './UserComponent/RouteAddUser.jsx';
 import RouteEditUser from './UserComponent/RouteEditUser.jsx';
 
+// import music.jpg from './RouteEditEvent';
 import RouteMenu from './RouteMenu.jsx';
 import RouteSingleCategory from './RouteSingleCategory.jsx';
 
@@ -52,6 +55,8 @@ class App extends Component {
 
           <RouteSingleEvent  path="/events/:id/" currentUser={currentUser} />
 
+          <RouteEvents currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} path='/events'/>
+          
           <RouteSingleCategory currentUser={currentUser} path ="/categories/:id" />
 
           <RouteAddEvent currentUser={currentUser} path="/events/create" />
@@ -70,8 +75,12 @@ class App extends Component {
           <RouteEditUser currentUser={currentUser} path="/users/:id/edit" />
           {/* ) : null} */}
 
+          <RouteSavedEvents path='/users/:id/savedEvents'/>
+
           <RouteMenu currentUser={currentUser} path='/menu'/>
+          
         </Router>
+
       </div>
     );
   }

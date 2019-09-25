@@ -1,0 +1,101 @@
+.savedEvents-title{
+    margin-bottom: 2em;
+    
+    i{
+        margin-left: 0.25em;
+    }
+}
+
+.savedEvents-container{
+    
+    
+    .header{
+        margin-top: 1em;
+    }
+    .upcoming-heading{
+        text-align: left;
+        cursor: pointer;
+        background-color: white;
+        
+    }
+    ::-webkit-scrollbar {
+        width: 0px; 
+        background: transparent;
+    }
+
+    .upcoming-event-box{        
+        padding: 2em 0.75rem;
+        position: relative;
+        margin: 1em 0;
+        box-shadow: 0 0.5em 0.75em -0.5em rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-wrap: wrap;
+        border: thin solid rgba(0, 0, 0, 0.10);
+        border-radius: 1.25em;
+        
+    }
+
+    .picture-div{
+        flex: 0 0 5.5em;
+        height:5.5em;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $light-gray;
+        img{
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    .info-div{
+        flex: 1 0 40%;
+        margin-left: 0.75em;
+        padding-right: 2em;
+    }
+    .upcoming-event-box-icons{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0.5rem 1em;
+        color: $light-gray;
+        font-size: 1.25em;
+        justify-content: center;
+        
+    }
+
+    .upcoming-event-name{
+        font-size: 0.9em;
+        font-weight: 600;
+        line-height: 1.1em;
+        margin-bottom: 0.25em;
+    }
+
+    .upcoming-event-location{
+        font-size: 0.9em;
+        font-weight: 300;
+        color: $light-gray;
+        margin-bottom: 0.5em;
+    }
+
+
+    .category-button{
+        position: absolute;
+        // bottom: 0;
+        font-size: 0.8em;
+        text-align: center;
+        color: $sport-color;
+        border: 1px solid $sport-color;
+        padding: 0.25em 1.25em;
+        
+    }
+
+}
+
+.event-card-body{
+   display: flex;
+   flex-direction: column;
+   align-content: center;
+}
+

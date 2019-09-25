@@ -30,16 +30,17 @@ class RouteEvents extends Component{
       componentDidMount(){
             this.routeGetEvents();
             
-            var userId = localStorage.getItem('userId')
+            // var userId = localStorage.getItem('userId')
 
-             if (userId){
-                 getSingleUser(userId).then(res =>  this.setState({currentUser:res.data}))
-             }
+            //  if (userId){
+            //      getSingleUser(userId).then(res =>  this.setState({currentUser:res.data}))
+            //  }
       }
 
       render(){
 
         var {events} = this.state
+
         var {currentUser} = this.props
         return (
             <div className="container homepage-container">
@@ -65,7 +66,8 @@ class RouteEvents extends Component{
                             event: event,
                             key: event.id,
                             refreshData: this.routeGetEvents,
-                            currentUser:currentUser
+                            currentUser: currentUser,
+                            setCurrentUser:this.props.setCurrentUser
                         }
                         return <Event {...eventProps} />
                         })
