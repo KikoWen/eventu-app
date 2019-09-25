@@ -58,6 +58,7 @@ class RouteSingleEvent extends Component {
         this.loadSingleEvent()
     }
 
+    
     render() {
         console.log('Bla')
 

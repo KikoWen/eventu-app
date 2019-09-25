@@ -42,19 +42,19 @@ class RouteEditEvent extends Component{
         var {name,description,catogory,location,cost} = this.state.event
         return (
           <div className="container addevent-container">
-            <div className="header"> 
-            </div>
+            {/* <div className="header"> 
+            </div> */}
             <div className="main">
               <h2>Edit event</h2>
               <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
                 <div className="form-group">
                   <label htmlFor="eventName">Event Name</label>
-                  <input type="text" className="form-control" name="eventName" id="eventName" defaultValue={name} />
+                  <input type="text" className="form-control2" name="eventName" id="eventName" defaultValue={name} />
                 </div>
                 <div className="event-type-and-location">
                   <div className="form-group">
                     <label htmlFor="eventType">Event Type</label>
-                    <select className="form-control" id="eventType" name="eventType" defaultValue ={catogory}> 
+                    <select className="form-control2" id="eventType" name="eventType" defaultValue ={catogory}> 
                       <option>Entertainment</option>
                       <option>Wellbeing</option>
                       <option>Sport</option>
@@ -64,12 +64,12 @@ class RouteEditEvent extends Component{
                   </div>
                   <div className="form-group">
                     <label htmlFor="eventLocation">Event Location</label>
-                    <input type="text" className="form-control" name="eventLocation" id="eventLocation" defaultValue={location}/>
+                    <input type="text" className="form-control2" name="eventLocation" id="eventLocation" defaultValue={location}/>
                   </div>
                 </div>
                 <div className="form-group">
                   <label htmlFor="eventDescription">Event Description</label>
-                  <input className="form-control event-description" name="eventDescription" id="eventDescription" rows="4" defaultValue={description}/>
+                  <textarea className="form-control2" name="eventDescription" id="eventDescription" rows="4" defaultValue={description}/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="uploadPhoto">Upload Photo</label>
@@ -77,9 +77,9 @@ class RouteEditEvent extends Component{
                 </div>
                 <div className="form-group">
                   <label htmlFor="ticketPrice">Ticket Price</label>
-                  <input type="text" className="form-control" name="ticketPrice" id="ticketPrice" defaultValue={cost}/>
+                  <input type="text" className="form-control2" name="ticketPrice" id="ticketPrice" defaultValue={cost}/>
                 </div>
-                <button type="submit" className="btn btn-primary">Update</button>
+                <button type="submit" className="btn btn-primary" id="Submit">Update</button>
               </form>
             </div>
             <Footer/>
