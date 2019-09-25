@@ -1,0 +1,54 @@
+
+@mixin header-categoryies-style{
+    .categories {
+      flex-basis: 1 0 95%;
+    //   border: 1px purple solid;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.9em;
+      padding: 2em 0.5em 0 0.5em;
+      margin-top: -2em;
+      & > div {
+        // border: thin black solid;
+        border-radius: 0.7em;
+        padding: 0 0.5em;
+        margin: 0.3em;
+      }
+
+      a{
+        border-radius: .5em;
+        padding: .1em .4em;
+        margin: .4em;
+        font-size: 1.2em;
+      }
+    }
+    .category-name-style{
+      font-weight: bolder;
+      text-transform: capitalize;
+    }
+  }
+
+  .accordion{
+    text-align: right;
+    margin-bottom: 1em;
+  }
+  .category-filter{
+    .filter-button{
+      padding-right: 0em;
+      border: none;
+        &:focus{
+          border: none;
+          outline: none;
+        }
+
+      i{
+        margin-top: 0;
+      
+      }
+    }
+
+  }
+
+  
+

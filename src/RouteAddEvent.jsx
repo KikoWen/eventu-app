@@ -1,24 +1,39 @@
 import React, {Component} from 'react';
-import {addEvents,uploadFile} from './Api.jsx';
+import {addEvents,uploadFile,getCategories} from './Api.jsx';
 import { navigate, Link } from '@reach/router';
 import Footer from './Footer.jsx'
 
 class RouteAddEvent extends Component{
+
+  constructor(props){
+    super(props);
+    this.state ={
+        events:[],
+        categories:[]
+        
+    }
+  }
+  componentDidMount(){
+    getCategories().then(res=>this.setState({categories:res.data}))
+  }
+
+
   handleFormSubmit = (e) => {
     e.preventDefault();
 
     var formData = new FormData(this.form);
-
+    var {currentUser} = this.props
     uploadFile(formData).then(res=>{
 
 
       var data = {
         name:formData.get('eventName'),
-        category:formData.get('eventType'),
+        cat_id:formData.get('eventType'),
         location:formData.get('eventLocation'),
         description:formData.get('eventDescription'),
         cost:formData.get('ticketPrice'),
-        photo: res.data
+        photo: res.data,
+        user_id: currentUser.id
       }
   
       addEvents(data).then(res => navigate('/events'))
@@ -44,12 +59,13 @@ class RouteAddEvent extends Component{
             <div class="event-type-and-location">
               <div class="form-group">
                 <label for="eventType">Event Type</label>
+
                 <select class="form-control" id="eventType" name="eventType">
-                  <option>Entertainment</option>
-                  <option>Wellbeing</option>
-                  <option>Sport</option>
-                  <option>Food & Drink</option>
-                  <option>Miscellaneous</option>
+                  {
+                        this.state.categories.map( category => {
+                            return <option value={category.id} key={category.id}>{category.name}</option>
+                        })
+                    }
                 </select>
               </div>
               <div className="form-group">
@@ -72,14 +88,6 @@ class RouteAddEvent extends Component{
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>
         </div>
-        {/* <div class="footer">
-          <div class="home-footer">
-          <Link to= "/events"><i class="fas fa-home"></i></Link>
-            <i class="fas fa-plus"></i>
-            <i class="far fa-bookmark"></i>
-            <i class="fas fa-bars"></i>
-          </div>
-        </div> */}
         <Footer/>
       </div>
     )

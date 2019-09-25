@@ -10,17 +10,19 @@ var getEvents = () => {
 }
 
 var getCategories = () => {
-    return axios.get(urlPrefix+'/categories')
-       
+    return axios.get(urlPrefix+'/categories')      
 }
 
+var getSingleCategory = (id) => {
+  return axios.get(urlPrefix+'/categories/'+id)      
+}
 
-var  addEvents = (data) => {
+var addEvents = (data) => {
     return axios.post(urlPrefix+'/events',data)
     
 }
 
-var  authenticate = (data) => {
+var authenticate = (data) => {
   return axios.post(urlPrefix+'/authenticate',data)          
 }
 
@@ -77,6 +79,10 @@ var deleteBookmarks= (userId,eventId) => {
 }
 
 
+var  authenticate = (data) => {
+  return axios.post(urlPrefix+'/authenticate',data)          
+}
+
 //User end
 
 var uploadFile = (formData) => {
@@ -85,6 +91,21 @@ var uploadFile = (formData) => {
   return axios.post(urlPrefix+'/upload',formData,settings)
 
 }
+
+//Comment/Review CRUD 
+
+var  addReviews = (data) => {
+  return axios.post(urlPrefix+'/reviews',data)
+  
+}
+
+var deleteReviews = (id) => {
+  return axios.delete(urlPrefix+'/reviews/'+id)
+
+}
+
+
+
 
 export {
   serverURL, 
@@ -100,7 +121,10 @@ export {
   deleteUsers,
   authenticate,
   getCategories, 
+  getSingleCategory, 
   uploadFile,
   addBookmarks,
-  deleteBookmarks
+  deleteBookmarks,
+  addReviews,
+  deleteReviews,
 }

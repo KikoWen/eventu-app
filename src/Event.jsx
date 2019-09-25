@@ -21,6 +21,7 @@ class Event extends Component {
     }
 
     render(){
+        var {event, currentUser} = this.props
 
         // var catColors = {
         //     sport: '#0091FF',
@@ -31,17 +32,20 @@ class Event extends Component {
         //   }
 
         var {event,currentUser} = this.props
+        var color = event.category? event.category.color: '#0091FF'
 
         return currentUser ? (
             <div className="featured-card" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, #0091FF),url('+serverURL+event.photo+')'}}>
                 <div className="information">
                     <div className="category-noborder">
-                        <button className="category">{event.category}</button>
-                        <div className="event-icon-group">
-                            {currentUser.savedEvents.includes(event.id) ? <i className="fas fa-bookmark"></i> : <i onClick={this.handleBookmarkClick}className="far fa-bookmark"></i>}
-                            <Link to={'/events/'+event.id+'/edit'}><i className="far fa-edit"></i></Link>
-                            <i onClick={this.handleTrashClick} className="fas fa-trash"></i> 
-                        </div>
+                        <button className="category">{event.category? event.category.name : null}</button>
+                        { currentUser && currentUser.id == event.user_id ? (
+                            <div className="event-icon-group">
+                                {currentUser.savedEvents.includes(event.id) ? <i className="fas fa-bookmark"></i> : <i onClick={this.handleBookmarkClick}className="far fa-bookmark"></i>}
+                                <Link to={'/events/'+event.id+'/edit'}><i className="far fa-edit"></i></Link>
+                                <i onClick={this.handleTrashClick} className="fas fa-trash"></i> 
+                            </div>
+                        ) : null}
                     </div>
 
                     <div className="event-info"> 

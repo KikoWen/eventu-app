@@ -1,11 +1,7 @@
-$font-family: "Raleway", sans-serif;
-$primary-color: #8400d1;
-
-@import "mixins";
-
 .container {
   overflow-y: scroll !important;
 }
+
 header {
   text-align: left;
 }
@@ -22,24 +18,22 @@ header {
   text-align: center;
 }
 
-.signup-contents {
+.signup-contents .signup-contents-input {
+  border: thin lightgrey solid;
+  height: 3.5em;
+  width: 74%;
+  background-color: #f8f8f8;
+  padding: 0.5em;
+}
 
-  .signup-contents-input {
-    border: thin lightgrey solid;
-    height: 3.5em;
-    width: 74%;
-    background-color: #f8f8f8;
-    padding: 0.5em;
-  }
-  ::placeholder {
-    font-size: 0.8em;
-    padding-left: 1em;
-    color: grey;
-  }
+.signup-contents ::placeholder {
+  font-size: 0.8em;
+  padding-left: 1em;
+  color: grey;
 }
 
 .btn {
-  background-color: $primary-color;
+  background-color: #8400d1;
   color: white;
   padding: 1em 3.4em;
   border-radius: 29px;
@@ -48,7 +42,9 @@ header {
 }
 
 label {
-  @include h4;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
   text-align: left !important;
 }
 

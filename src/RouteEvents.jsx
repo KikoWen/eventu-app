@@ -1,65 +1,30 @@
 import React, {Component} from 'react';
-import {Link } from "@reach/router";
 import Event from './Event';
 import { getEvents, getSingleUser } from './Api';
 import Footer from './Footer.jsx';
+import CategoryFilter from './CategoryFilter.jsx';
 
 class RouteEvents extends Component{
     constructor(props){
         super(props)
 
         this.state={
-            events:[
-            //   {
-            //     name:'testing',
-            //     id: 1,
-            //     description: 'live music',
-            //     location:'3 City rd, Grafton, Auckland',
-            //     time: '10th Oct 2019',
-            //     category: 'entertainment',
-            // },
-            // {
-            //   name:'fitness',
-            //   id: 3,
-            //   description: 'gym time',
-            //   location:'3 City rd, Grafton, Auckland',
-            //   time: '10th Oct 2019',
-            //   category: 'sport'
-            // },
-            // {
-            //   name:'wellbeing',
-            //   id: 2,
-            //   description: 'meditation',
-            //   location:'3 City rd, Grafton, Auckland',
-            //   time: '10th Oct 2019',
-            //   category: 'wellbeing'
-            // },
-            // {
-            //   name:'food & drink',
-            //   id: 4,
-            //   description: 'meditation',
-            //   location:'3 City rd, Grafton, Auckland',
-            //   time: '10th Oct 2019',
-            //   category: 'foodDrink'
-            // },
-            // {
-            //   name:'exchange cloths market',
-            //   id: 5,
-            //   description: 'meditation',
-            //   location:'3 City rd, Grafton, Auckland',
-            //   time: '10th Oct 2019',
-            //   category: 'miscellaneous',
-            // }
-            ],
-            currentUser: null
-        }
-    }
-
+            events:[],
+            isCategoryOn: false
+          }
+          
+      }
 
       routeGetEvents = () => {
           getEvents().then(res => {
               this.setState({events:res.data})
           })
+      }
+
+      handleFilterClick = () =>{
+         this.setState({
+             isCategoryOn: !this.state.isCategoryOn
+         })
       }
 
       componentDidMount(){
@@ -72,9 +37,6 @@ class RouteEvents extends Component{
             //  }
       }
 
-      
-
-    
       render(){
 
         var {events} = this.state
@@ -91,20 +53,12 @@ class RouteEvents extends Component{
                         </div>
                     </div>
                     <div className="header2">
-                        <h6 className="hi-name">
-                            {
-                                currentUser? (<span>Hi, {currentUser.name}</span>) : null
-                            }
-                        </h6>
-                        <div className="filter">  
-                        <div className="filter">
-                            <p className="filter-p">filter</p> 
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        </div>
+                        <h6 className="hi-name">Hi {currentUser ? currentUser.name : 'Guest'}</h6>
                     </div>
+                    
                 </div>
                 <div className="main">
+                    <CategoryFilter/>
                     {
                         events.map(event => {
 

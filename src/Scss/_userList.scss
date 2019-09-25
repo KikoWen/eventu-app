@@ -1,14 +1,25 @@
 $font-family: 'Montserrat', sans-serif;
+
+.userpage-info{
+    a{
+        text-align: left;
+    }
+}
+
+
 .user-list{
     .fas{
         text-align: left;
     }
     font-family: $font-family;
   .userpage-details{
-      margin: .5em 0;
-      text-align: left;
-      line-height: 1.5em;
-      border-bottom: thin grey solid;
+        padding: .5em;
+        margin: .5em 0;
+        text-align: left;
+        line-height: 1.5em;
+        border-radius: .5em;
+        box-shadow: -1px 13px 24px -16px rgba(0,0,0,0.43);
+
   }
 
   .edit-platform{

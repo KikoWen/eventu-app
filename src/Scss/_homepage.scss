@@ -1,5 +1,7 @@
 $font-family: 'Montserrat', sans-serif;
 $primary-color: #2d2b88;
+$wellbeing-color: #519607;
+
 @import 'mixins';
 
 h1 {
@@ -17,6 +19,7 @@ h6 {
 
 .hi-name {
 	font-weight: 600;
+	font-style: italic;
 }
 
 // .container will override any other modules that use the same '.container' selector. Change to '.homepage-container'
@@ -26,14 +29,12 @@ h6 {
 }
 
 .header {
-	// border: 1px solid red;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
 .header1 {
-	// border: 1px solid blue;
 	text-align: left;
 
 	.location {
@@ -47,7 +48,6 @@ h6 {
 }
 
 .header2 {
-	// border: 1px solid green;
 	text-align: right;
 
 	.filter {
@@ -55,7 +55,7 @@ h6 {
 		padding-left: 3em;
 
 		.fas {
-			padding-left: 0.5em;
+			padding-left: 0.5em ;
 			color: #0091ff;
 			font-size: 1.5em;
 		}
@@ -65,17 +65,10 @@ h6 {
 .featured-card {
 	margin-top: 2em;
 	overflow: hidden;
-
-	// background-image: linear-gradient(165deg, rgba(0,0,0,0) 43%,$primary-color);
 	width: 86%;
 	height: 26em;
 	background-repeat: no-repeat;
 	border-radius: 2em;
-	// border: 1px red solid;
-
-	// & after{
-	//     background-image: linear-gradient(from bottom, $primary-color, white);
-	// }
 }
 
 .category {
@@ -103,7 +96,6 @@ h6 {
 
 .event-info {
 	text-align: left;
-	// margin-top: 15em;
 	padding: 0 0.8em;
 }
 
@@ -140,9 +132,6 @@ p {
 
 
 .picture-div {
-	// background-image: url(../assets/img/pic2.jpg)
-	// border: 1px green solid;
-	// height: 5em;
 
 	img {
 		width: 5em;
@@ -150,7 +139,6 @@ p {
 }
 
 .upcoming-event-box {
-	// border: 1px blue solid;
 	display: flex;
 	flex-wrap: wrap;
 	box-shadow: 5px 6px 21px -5px rgba(0, 0, 0, 0.36);
@@ -178,6 +166,15 @@ p {
 	@include category-button;
 }
 
-// .footer{
-// 	position: fixed;
-// }
+
+.accordion{
+	i{
+		margin-left: .5em;
+		transition: all ease .5s;
+	}	
+	.fa-chevron-up{
+		color: $wellbeing-color;
+	}
+}
+
+
