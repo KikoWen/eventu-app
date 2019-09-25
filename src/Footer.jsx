@@ -4,14 +4,14 @@ import { Link, } from "@reach/router";
 class Footer extends Component{
 
     render(){
-        var {event} = this.props
+        var {currentUserId} = this.props
         return(
 
            
             <footer>
                 <Link to= "/events"><i className="fas fa-home"></i></Link>
                 <Link to="/events/create"><i className="fas fa-plus"></i></Link>
-                <i className="far fa-bookmark"></i>
+                <Link to={"/users/"+currentUserId+"/savedEvents"}><i className="far fa-bookmark"></i></Link>
                 <Link to="/menu"><i className="fas fa-bars"></i></Link>
             </footer>
         )

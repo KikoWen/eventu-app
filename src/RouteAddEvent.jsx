@@ -43,6 +43,8 @@ class RouteAddEvent extends Component{
   }
     
   render(){
+    var {currentUser} = this.props
+
     return (
       <div class="container addevent-container">
         
@@ -87,7 +89,7 @@ class RouteAddEvent extends Component{
           </form>
         </div>
         
-        <Footer/>
+        <Footer currentUserId={currentUser.id}/>
       </div>
     )
   }

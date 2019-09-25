@@ -52,7 +52,7 @@ class App extends Component {
       <div>
         <Router>
      
-          <RouteSingleEvent  path="/events/:id/" currentUser={currentUser} />
+          <RouteSingleEvent  currentUser={currentUser} path="/events/:id/" currentUser={currentUser} />
 
           <RouteEvents currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} path='/events'/>
           
@@ -60,7 +60,7 @@ class App extends Component {
 
           <RouteAddEvent currentUser={currentUser} path="/events/create" />
 
-          <RouteEditEvent path="/events/:id/edit/" />
+          <RouteEditEvent currentUser={currentUser} path="/events/:id/edit/" />
 
           <RouteLogin setCurrentUser={this.setCurrentUser} path="/" />
 

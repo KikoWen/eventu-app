@@ -38,7 +38,7 @@ class RouteEditEvent extends Component{
 
     
       render(){
-        
+        var {currentUser} = this.props
         var {name,description,catogory,location,cost} = this.state.event
         return (
           <div className="container addevent-container">
@@ -82,7 +82,7 @@ class RouteEditEvent extends Component{
                 <button type="submit" className="btn btn-primary" id="Submit">Update</button>
               </form>
             </div>
-            <Footer/>
+            <Footer currentUserId={currentUser.id}/>
           </div>
     
 

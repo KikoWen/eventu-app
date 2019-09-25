@@ -23,6 +23,7 @@ class RouteSingleEvent extends Component{
     render(){
 
         var {event} = this.state
+        var {currentUser} = this.props
 
       return event ? (
             <div class="container">
@@ -80,7 +81,7 @@ class RouteSingleEvent extends Component{
                             </div>
                     </div>
                 </div>
-                <Footer/>
+                <Footer currentUserId={currentUser.id}/>
             </div>
         ) : null
       
