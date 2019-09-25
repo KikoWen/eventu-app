@@ -74,15 +74,15 @@ class RouteSingleEvent extends Component {
 
                     <div className="text-contents">
                         <div className="title">
-                            <h2>{event.name}</h2>
-                            <div className="icons">
+                            <h2 className="eventpage-name">{event.name}</h2>
+                            <div className="eventpage-icons">
                                 <i className="far fa-bookmark"></i>
                                 <i className="fas fa-share-square"></i>
                             </div>
                         </div>
 
                         <div className="explanation">
-                            <p>{event.description} <a href="">read more</a></p>
+                            <p className="eventpage-p">{event.description} <a href="">read more</a></p>
                         </div>
 
                         <div className="date-info">
@@ -133,7 +133,9 @@ class RouteSingleEvent extends Component {
                         </form>
                     </div>
                 </div>
+                <Footer></Footer>
             </div>
+            
                 ) :null
             }
         }
