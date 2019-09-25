@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Link, } from "@reach/router";
-// import { navigate } from '@reach/router';
 
 class Footer extends Component{
 
