@@ -45,16 +45,14 @@ class RouteAddEvent extends Component{
   render(){
     return (
       <div class="container addevent-container">
-        <div class="header">
-                
-        </div>
+        
         
         <div class="main">
           <h2>Add event</h2>
           <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
             <div class="form-group">
               <label for="eventName">Event Name</label>
-              <input type="text" class="form-control" name="eventName" id="eventName"/>
+              <input type="text" class="form-control2" name="eventName" id="eventName"/>
             </div>
             <div class="event-type-and-location">
               <div class="form-group">
@@ -70,12 +68,12 @@ class RouteAddEvent extends Component{
               </div>
               <div className="form-group">
                 <label for="eventLocation">Event Location</label>
-                <input type="text" class="form-control" name="eventLocation" id="eventLocation"/>
+                <input type="text" class="form-control2" name="eventLocation" id="eventLocation"/>
               </div>
             </div>
             <div class="form-group">
               <label for="eventDescription">Event Description</label>
-              <textarea class="form-control" name="eventDescription" id="eventDescription" rows="4"></textarea>
+              <textarea class="form-control2" name="eventDescription" id="eventDescription" rows="4"></textarea>
             </div>
             <div class="form-group">
               <label for="uploadPhoto">Upload Photo</label>
@@ -83,11 +81,12 @@ class RouteAddEvent extends Component{
             </div>
             <div class="form-group">
               <label for="ticketPrice">Ticket Price</label>
-              <input type="text" class="form-control" name="ticketPrice" id="ticketPrice"/>
+              <input type="text" class="form-control2" name="ticketPrice" id="ticketPrice"/>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary" id="Submit">Submit</button>
           </form>
         </div>
+        
         <Footer/>
       </div>
     )

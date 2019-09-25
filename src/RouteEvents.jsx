@@ -70,7 +70,7 @@ class RouteEvents extends Component{
                         return <Event {...eventProps} />
                         })
                     }
-                </div>
+                </div> 
                 <Footer/>
             </div>
     
