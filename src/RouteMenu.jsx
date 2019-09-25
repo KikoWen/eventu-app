@@ -11,7 +11,7 @@ class RouteMenu extends Component{
 
                     <ul className="menu-list list-group list-group-flush">
                         <Link to="/events/create"><li className="menu-items list-group-item">Add Event</li></Link>
-                        <Link to="/events/saved"><li className="menu-items list-group-item">Saved Events</li></Link>
+                        <Link to={'/users/'+currentUser.id+'/savedEvents'}><li className="menu-items list-group-item">Saved Events</li></Link>
                         {/* <li className="menu-items list-group-item">My Events</li>
                         <li className="menu-items list-group-item">My Events</li> */}
                         <Link to = "/users/:id/edit" ><li className="menu-items list-group-item">My Account</li></Link>
