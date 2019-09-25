@@ -1,16 +1,17 @@
 
 @mixin header-categoryies-style{
     .categories {
+      // position: absolute;
+      // z-index: 100;
       flex-basis: 1 0 95%;
-    //   border: 1px purple solid;
+      // border: 1px purple solid;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       font-size: 0.9em;
-      padding: 2em 0.5em 0 0.5em;
-      margin-top: -2em;
+      padding: 1em 0.5em 0 0.5em;
+      margin-top: 0em;
       & > div {
-        // border: thin black solid;
         border-radius: 0.7em;
         padding: 0 0.5em;
         margin: 0.3em;

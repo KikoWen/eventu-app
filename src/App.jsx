@@ -46,6 +46,8 @@ class App extends Component {
     }
   }
 
+
+
   render() {
     var { currentUser } = this.state;
     return (
@@ -77,7 +79,7 @@ class App extends Component {
 
           <RouteSavedEvents path='/users/:id/savedEvents'/>
 
-          <RouteMenu currentUser={currentUser} path='/menu'/>
+          <RouteMenu setCurrentUser={this.setCurrentUser} currentUser={currentUser} path='/menu'/>
           
         </Router>
 

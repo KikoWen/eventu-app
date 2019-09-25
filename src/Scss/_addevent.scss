@@ -102,12 +102,22 @@ form {
     width: 50%;
 }
 
-#Submit {
+.submit-buttom {
     background-color: #8400d1 !important;
 	color: white !important;
 	padding: 0.5em 6em;
 	font-weight: 500;
 	letter-spacing: 1px;
 	border: $primary-color;
-	border-radius: 22px;
+    border-radius: 22px;
+    margin-top:.2em;
+}
+
+.event-type-and-location{
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-category, .event-location{
+    flex: 0 0 48%;
 }

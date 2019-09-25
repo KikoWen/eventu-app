@@ -22,7 +22,6 @@ h6 {
 	font-style: italic;
 }
 
-// .container will override any other modules that use the same '.container' selector. Change to '.homepage-container'
 
 .event-img {
 	width: 90%;
@@ -32,8 +31,6 @@ h6 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 1.2em;
-	height: 10vh;
 }
 
 .header1 {
