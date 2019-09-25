@@ -52,6 +52,10 @@ label {
   text-align: left !important;
 }
 
+.form-control2 {
+  width: 100%;
+}
+
 button {
   background-color: white !important;
   color: black !important;

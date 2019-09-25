@@ -61,7 +61,7 @@ class RouteEvents extends Component{
                     <CategoryFilter/>
                     {
                         events.map(event => {
-
+             
                         var eventProps = {
                             event: event,
                             key: event.id,

@@ -57,7 +57,7 @@ class RouteEditUser extends Component {
               <div className="form-group">
                 <label for="name">Name</label>
                 <input
-                  className="form-control"
+                  className="form-control2"
                   type="text"
                   name="name"
                   id="name"
@@ -68,7 +68,7 @@ class RouteEditUser extends Component {
               <div className="form-group">
                 <label for="userName">User name</label>
                 <input
-                  className="form-control"
+                  className="form-control2"
                   type="text"
                   name="userName"
                   id="userName"
@@ -78,7 +78,7 @@ class RouteEditUser extends Component {
 
               <div class="form-group">
                 <label for="role">User role</label>
-                <select class="form-control" id="userRole" name="userRole">
+                <select class="form-control2" id="userRole" name="userRole">
                   {currentUser && currentUser.role == "admin" ? (<option>Admin</option>): null}
                     <option>Event host</option>
                     <option>Attendee</option>
@@ -88,7 +88,7 @@ class RouteEditUser extends Component {
               <div className="form-group">
                 <label for="email">Email</label>
                 <input
-                  className="form-control"
+                  className="form-control2"
                   type="text"
                   name="email"
                   id="emailAddress"
@@ -99,13 +99,13 @@ class RouteEditUser extends Component {
               <div className="form-group">
                 <label for="password">Password</label>
                 <input
-                  className="form-control"
+                  className="form-control2"
                   type="password"
                   name="password"
                   id="password"
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary purple-button">
                 Update
               </button>
             </form>

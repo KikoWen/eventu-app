@@ -61,7 +61,8 @@ class RouteLogin extends Component {
                     
                 </div>
                 <div class="space"></div>
-                <p class="guestlogin">Login as a guest</p>
+                <Link to='/events'> <p class="guestlogin">Login as a guest</p></Link>
+                
                 
             </div>
         )

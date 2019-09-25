@@ -55,7 +55,7 @@ class RouteAddEvent extends Component{
               <input type="text" class="form-control2" name="eventName" id="eventName"/>
             </div>
             <div class="event-type-and-location">
-              <div class="form-group">
+              <div class="form-group event-category">
                 <label for="eventType">Event Type</label>
 
                 <select class="form-control2" id="eventType" name="eventType">
@@ -66,11 +66,16 @@ class RouteAddEvent extends Component{
                     }
                 </select>
               </div>
-              <div className="form-group">
+              <div className="form-group event-location">
                 <label for="eventLocation">Event Location</label>
                 <input type="text" class="form-control2" name="eventLocation" id="eventLocation"/>
               </div>
             </div>
+            <div class="form-group">
+              <label for="datetime">Date/Time</label>
+              <input type="text" class="form-control2" name="datetime" id="uploadPhoto" placeholder="dd-mm-yyyy 00:00"/>
+            </div>
+
             <div class="form-group">
               <label for="eventDescription">Event Description</label>
               <textarea class="form-control2" name="eventDescription" id="eventDescription" rows="4"></textarea>
@@ -83,7 +88,7 @@ class RouteAddEvent extends Component{
               <label for="ticketPrice">Ticket Price</label>
               <input type="text" class="form-control2" name="ticketPrice" id="ticketPrice"/>
             </div>
-            <button type="submit" className="btn btn-primary" id="Submit">Submit</button>
+            <button type="submit" className="btn btn-primary submit-buttom" >Submit</button>
           </form>
         </div>
         
