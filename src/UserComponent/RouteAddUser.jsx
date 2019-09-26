@@ -21,7 +21,7 @@ class RouteAddUser extends Component {
   handleFormSubmit = e => {
     e.preventDefault();
 
-    var formData = new FormData(this.form);
+    var formData = new FormData(this.formGroup.parentNode);
     var { currentUser } = this.props;
 
     var data = {
@@ -72,17 +72,18 @@ class RouteAddUser extends Component {
           <div className="signup-contents">
             <ValidatorForm onError={this.formError} onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}
               onSubmit={this.handleFormSubmit}
-              ref={el => {
-                this.form = el;
-              }}
+              
             >
-              <div className="form-group">
+              <div className="form-group" ref={el => {
+                this.formGroup = el;
+              }}>
                 <label for="name">Name</label>
                 <TextValidator
                   className="form-control2"
                   type="text"
                   name="name"
                   id="name"
+
                   value={name}
                   onChange={this.handleInputChange}
                   validators={['required']}
@@ -111,7 +112,6 @@ class RouteAddUser extends Component {
                     <option>Event host</option>
                     <option>Attendee</option>
                 </select>
-       
               </div>
 
               <div className="form-group">
@@ -137,6 +137,7 @@ class RouteAddUser extends Component {
                   id="password"
                 />
               </div>
+
               <button type="submit" className="btn btn-primary purple-button">
                 Create New Account
               </button>
