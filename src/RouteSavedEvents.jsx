@@ -47,9 +47,11 @@ class RouteSavedEvents extends Component{
                             <h4 >Upcoming Events</h4>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
-                            <Card.Body > 
+                            <Card.Body > {
+								user.savedEvents.length >= 1 ? (
+							
 								
-								{user.bookmarks.map(event=>{
+								user.bookmarks.map(event=>{
 
 									return(
 										<div class="upcoming-event-box">
@@ -69,7 +71,9 @@ class RouteSavedEvents extends Component{
 										</div>
 
 									)
-								})}
+								})
+
+								) : null }
 									
                             </Card.Body>
                         </Accordion.Collapse>

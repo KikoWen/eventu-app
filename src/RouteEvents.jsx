@@ -73,7 +73,7 @@ class RouteEvents extends Component{
                         })
                     }
                 </div> 
-                <Footer currentUserId={currentUser.id}/>
+                <Footer currentUserId={currentUser ? currentUser.id : null}/>
             </div>
     
 

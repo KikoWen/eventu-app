@@ -87,7 +87,7 @@ class RouteEditEvent extends Component{
                 <button type="submit" className="btn btn-primary submit-buttom " >Update</button>
               </form>
             </div>
-            <Footer currentUserId={currentUser.id}/>
+            <Footer currentUserId={currentUser ? currentUser.id : null}/>
           </div>
     
 
