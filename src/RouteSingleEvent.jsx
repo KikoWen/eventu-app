@@ -112,10 +112,10 @@ class RouteSingleEvent extends Component {
                    
                             <div className="card comment-card">
                                 <div className="card-body">
-                                    <p className="username">{review.user_id.name}</p>
-                                    <h5 className="card-title title">{review.title}</h5>
+                                    <p className="username">{review.user.name}</p>
+                                    {/* <h5 className="card-title title">{review.title}</h5> */}
                                     <p className="card-text comment">{review.comment}</p>
-                                    <i onClick={this.handleTrashClick} data-reviewid={review.id} className="fas fa-trash"></i>
+                                    <i className="bin" onClick={this.handleTrashClick} data-reviewid={review.id} className="fas fa-trash"></i>
                                 </div>
 
                             </div>
@@ -125,7 +125,7 @@ class RouteSingleEvent extends Component {
 
                     <div className="input-group mb-3">
                         <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
-                        <input type="text" name="title" id="title" className="form-control" placeholder="Add title" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                        {/* <input type="text" name="title" id="title" className="form-control" placeholder="Add title" aria-label="Recipient's username" aria-describedby="basic-addon2"/> */}
                         <input type="text" name="comment" id="comment" className="form-control" placeholder="Add comment" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
                             <div className="input-group-append">
                                 <button type="submit" className="comment-button">add</button>
