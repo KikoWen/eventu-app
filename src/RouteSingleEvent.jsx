@@ -63,7 +63,7 @@ class RouteSingleEvent extends Component {
         console.log('Bla')
 
         var {event} = this.state
-
+        var {currentUser} = this.props
         return event ? (
             <div className="container single-event-container">
                 <div className="mainevent-section">
@@ -115,7 +115,8 @@ class RouteSingleEvent extends Component {
                                     <p className="username">{review.user.name}</p>
                                     {/* <h5 className="card-title title">{review.title}</h5> */}
                                     <p className="card-text comment">{review.comment}</p>
-                                    <i className="bin" onClick={this.handleTrashClick} data-reviewid={review.id} className="fas fa-trash"></i>
+                                    {currentUser && (currentUser.id == review.user_id || currentUser.role == 'admin') ? (<i className="bin" onClick={this.handleTrashClick} data-reviewid={review.id} className="fas fa-trash"></i>) : null}
+                                    
                                 </div>
 
                             </div>
@@ -133,7 +134,7 @@ class RouteSingleEvent extends Component {
                         </form>
                     </div>
                 </div>
-                <Footer></Footer>
+                <Footer  currentUserId={currentUser ? currentUser.id : null}></Footer>
             </div>
             
                 ) :null

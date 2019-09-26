@@ -28,13 +28,14 @@ class RouteAddUser extends Component {
       name: formData.get("name"),
       email: formData.get("email"),
       username: formData.get("username"),
-      role: formData.get("role")
+      role: formData.get("userRole"),
+      password: formData.get("password"),
     };
 
     {
       currentUser && currentUser.role == "admin"
         ? addUsers(data).then(res => navigate("/users"))
-        : addUsers(data).then(res => navigate("/events"));
+        : addUsers(data).then(res => navigate("/"));
     }
 
   
@@ -105,14 +106,21 @@ class RouteAddUser extends Component {
                 />
               </div>
 
+    
+
+              
               <div class="form-group">
-                <label for="userrole">User role</label>
-                <select class="form-control2" id="userRole" name="userRole">
-                  {currentUser && currentUser.role == "admin" ? (<option>Admin</option>): null}
-                    <option>Event host</option>
-                    <option>Attendee</option>
+                <label for="userRole">User role</label>
+                <select class="form-control2" id="userRole" name="userRole" defaultValue="Attendee">
+                {currentUser && currentUser.role ==='admin' ? (<option value="Admin">Admin</option>):null}
+                    <option value="Event host">Event host</option>
+                    <option value="Attendee">Attendee</option>
                 </select>
               </div>
+
+
+    
+              
 
               <div className="form-group">
                 <label for="email">Email</label>
@@ -130,11 +138,15 @@ class RouteAddUser extends Component {
 
               <div className="form-group">
                 <label for="password">Password</label>
-                <input
+                <TextValidator 
                   className="form-control2"
                   type="password"
                   name="password"
                   id="password"
+                  value={password}
+                  onChange={this.handleInputChange}
+                  validators={['required','minStringLength: 3','maxStringLength: 10']}
+                  errorMessages={['this field is required','too short','too long']}
                 />
               </div>
 
@@ -146,7 +158,7 @@ class RouteAddUser extends Component {
         </div>
         <Footer />
       </div>
-    );
+    ) 
   }
 }
 

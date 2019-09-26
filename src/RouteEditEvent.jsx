@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { getSingleEvent , updateEvents} from './Api.jsx';
+import { getSingleEvent , updateEvents, uploadFile} from './Api.jsx';
 import { navigate } from '@reach/router';
 import Footer from './Footer.jsx';
 
@@ -19,21 +19,34 @@ class RouteEditEvent extends Component{
       }
 
       handleFormSubmit = (e) => {
+
         e.preventDefault();
 
         var formData = new FormData(this.form);
+  
+        uploadFile(formData).then(res=>{
+         
+          var data = {
+            name:formData.get('eventName'),
+            category:formData.get('eventType'),
+            location:formData.get('eventLocation'),
+            description:formData.get('eventDescription'),
+            cost:formData.get('ticketPrice'),
+          }
 
-        var data = {
-          name:formData.get('eventName'),
-          category:formData.get('eventType'),
-          location:formData.get('eventLocation'),
-          description:formData.get('eventDescription'),
-          cost:formData.get('ticketPrice'),
-      
-        }
-        var {id} = this.props;
+          var fileName = res.data
 
-        updateEvents(id,data).then(res => navigate('/events'))
+          if(fileName != ''){
+            data.photo = fileName
+          }
+
+          var {id} = this.props;
+  
+          updateEvents(id,data).then(res => navigate('/events'))
+    
+
+        })
+       
       }
 
     
@@ -74,7 +87,7 @@ class RouteEditEvent extends Component{
 
                 <div className="form-group">
                   <label htmlFor="eventDescription">Event Description</label>
-                  <textarea className="form-control2" name="eventDescription" id="eventDescription" rows="4" defaultValue={description}/>
+                  <input className="form-control2" name="eventDescription" id="eventDescription" rows="4" defaultValue={description}/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="uploadPhoto">Upload Photo</label>
