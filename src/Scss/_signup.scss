@@ -49,14 +49,18 @@ header {
 
 label {
   @include h4;
-  text-align: left !important;
 }
 
-.form-group {
-  text-align: left !important;
+.form-control2 {
+  width: 100%;
+}
+.purple-button{
+  background-color: #8400d1 !important;
+	color: white !important;
+	padding: 1em 3em;
+	font-weight: 500;
+	letter-spacing: 1px;
+	border: $primary-color;
+	border-radius: 28px;
 }
 
-button {
-  background-color: white !important;
-  color: black !important;
-}

@@ -38,8 +38,8 @@ class RouteEditEvent extends Component{
 
     
       render(){
-        var {currentUser} = this.props
-        var {name,description,catogory,location,cost} = this.state.event
+        var {currentUser} = this.props        
+        var {name,description,catogory,location,cost,time} = this.state.event
         return (
           <div className="container addevent-container">
             {/* <div className="header"> 
@@ -67,6 +67,11 @@ class RouteEditEvent extends Component{
                     <input type="text" className="form-control2" name="eventLocation" id="eventLocation" defaultValue={location}/>
                   </div>
                 </div>
+                <div class="form-group">
+                  <label for="datetime">Date/Time</label>
+                  <input type="text" class="form-control2" name="datetime" id="uploadPhoto" placeholder="dd-mm-yyyy 00:00" defaultValue={time}/>
+                </div>
+
                 <div className="form-group">
                   <label htmlFor="eventDescription">Event Description</label>
                   <textarea className="form-control2" name="eventDescription" id="eventDescription" rows="4" defaultValue={description}/>
@@ -79,7 +84,7 @@ class RouteEditEvent extends Component{
                   <label htmlFor="ticketPrice">Ticket Price</label>
                   <input type="text" className="form-control2" name="ticketPrice" id="ticketPrice" defaultValue={cost}/>
                 </div>
-                <button type="submit" className="btn btn-primary" id="Submit">Update</button>
+                <button type="submit" className="btn btn-primary submit-buttom " >Update</button>
               </form>
             </div>
             <Footer currentUserId={currentUser.id}/>

@@ -42,7 +42,7 @@ class Event extends Component {
                         <div className="category" style={{color:color}}>{event.category? event.category.name : null}</div>
                         <div className="event-icon-group">
                             {currentUser.savedEvents.includes(event.id) ? <i className="fas fa-bookmark"></i> : <i onClick={this.handleBookmarkClick}className="far fa-bookmark"></i>}
-                            { currentUser && currentUser.id == event.user_id ? (
+                            { currentUser && (currentUser.id == event.user_id || currentUser.role == 'admin') ? (
                                 <>
                                 <Link to={'/events/'+event.id+'/edit'}><i className="far fa-edit"></i></Link>
                                 <i onClick={this.handleTrashClick} className="fas fa-trash"></i> 
@@ -63,8 +63,7 @@ class Event extends Component {
                     
                 </div>
             </div>
-        ) : null
-    }
+        ): null}
 }
 
 export default Event;

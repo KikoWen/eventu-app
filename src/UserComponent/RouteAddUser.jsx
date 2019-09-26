@@ -79,7 +79,7 @@ class RouteAddUser extends Component {
               <div className="form-group">
                 <label for="name">Name</label>
                 <TextValidator
-                  className="form-control"
+                  className="form-control2"
                   type="text"
                   name="name"
                   id="name"
@@ -93,7 +93,7 @@ class RouteAddUser extends Component {
               <div className="form-group">
                 <label for="username">User name</label>
                 <TextValidator
-                  className="form-control"
+                  className="form-control2"
                   type="text"
                   name="username"
                   id="username"
@@ -106,7 +106,7 @@ class RouteAddUser extends Component {
 
               <div class="form-group">
                 <label for="userrole">User role</label>
-                <select class="form-control" id="userRole" name="userRole">
+                <select class="form-control2" id="userRole" name="userRole">
                   {currentUser && currentUser.role == "admin" ? (<option>Admin</option>): null}
                     <option>Event host</option>
                     <option>Attendee</option>
@@ -117,7 +117,7 @@ class RouteAddUser extends Component {
               <div className="form-group">
                 <label for="email">Email</label>
                 <TextValidator
-                  className="form-control"
+                  className="form-control2"
                   type="text"
                   name="email"
                   id="emailAddress"
@@ -131,13 +131,13 @@ class RouteAddUser extends Component {
               <div className="form-group">
                 <label for="password">Password</label>
                 <input
-                  className="form-control"
+                  className="form-control2"
                   type="password"
                   name="password"
                   id="password"
                 />
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary purple-button">
                 Create New Account
               </button>
             </ValidatorForm>
