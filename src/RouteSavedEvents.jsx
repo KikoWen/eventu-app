@@ -47,8 +47,8 @@ class RouteSavedEvents extends Component{
                             <h4 >Upcoming Events</h4>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
-                            <Card.Body >
-
+                            <Card.Body > 
+								
 								{user.bookmarks.map(event=>{
 
 									return(
