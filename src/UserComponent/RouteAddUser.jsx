@@ -38,8 +38,6 @@ class RouteAddUser extends Component {
         : addUsers(data).then(res => navigate("/"));
     }
 
-  
-    // addUsers(data).then(res => navigate("/users"));
   }
   
   handleInputChange = (e) => {
@@ -51,11 +49,9 @@ class RouteAddUser extends Component {
       stateData[inputName] = value
   
       this.setState(stateData)
-      console.log(stateData)
   }
 
   formError = (inputs) => {
-    console.log(inputs)
     
   }
   
@@ -106,9 +102,6 @@ class RouteAddUser extends Component {
                 />
               </div>
 
-    
-
-              
               <div class="form-group">
                 <label for="userRole">User role</label>
                 <select class="form-control2" id="userRole" name="userRole" defaultValue="Attendee">
@@ -117,10 +110,6 @@ class RouteAddUser extends Component {
                     <option value="Attendee">Attendee</option>
                 </select>
               </div>
-
-
-    
-              
 
               <div className="form-group">
                 <label for="email">Email</label>

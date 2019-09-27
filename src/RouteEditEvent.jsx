@@ -55,8 +55,6 @@ class RouteEditEvent extends Component{
         var {name,description,catogory,location,cost,time} = this.state.event
         return (
           <div className="container addevent-container">
-            {/* <div className="header"> 
-            </div> */}
             <div className="main">
               <h2>Edit event</h2>
               <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>

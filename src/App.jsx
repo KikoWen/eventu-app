@@ -22,7 +22,7 @@ import "./Scss/App.scss";
 import { getSingleEvent, getSingleUser, getCategories } from "./Api";
 
 
-var urlPrefix = "http://10.2.24.42:4000/api";
+var urlPrefix = "http://localhost:4000/api";
 
 class App extends Component {
   constructor(props) {

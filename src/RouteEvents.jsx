@@ -29,12 +29,6 @@ class RouteEvents extends Component{
 
       componentDidMount(){
             this.routeGetEvents();
-            
-            // var userId = localStorage.getItem('userId')
-
-            //  if (userId){
-            //      getSingleUser(userId).then(res =>  this.setState({currentUser:res.data}))
-            //  }
       }
 
       render(){

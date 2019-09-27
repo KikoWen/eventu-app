@@ -16,9 +16,7 @@ class RouteSingleEvent extends Component {
 
     handleFormSubmit = (e) => {
 
-
         e.preventDefault();
-        console.log('hi')
         var {id,currentUser,review} = this.props
        var formData = new FormData(this.form);
        
@@ -28,19 +26,15 @@ class RouteSingleEvent extends Component {
             user_id:currentUser.id,
             event_id:id
         }
-        console.log(data)
         
         addReviews(data)
         .then(res => this.loadSingleEvent())
-          
-     
-    
+
     }
 
     handleTrashClick = (e) => {
         var reviewId = e.target.dataset.reviewid
         var {refreshData} = this.props
-        console.log(reviewId)
         deleteReviews(reviewId).then(res => this.loadSingleEvent())
        
     }
@@ -58,17 +52,16 @@ class RouteSingleEvent extends Component {
         this.loadSingleEvent()
     }
 
-    
     render() {
-        console.log('Bla')
 
         var {event} = this.state
         var {currentUser} = this.props
+        
         return event ? (
             <div className="container single-event-container">
                 <div className="mainevent-section">
                     <div className="image-section" style={{backgroundImage:'linear-gradient(165deg, rgba(0,0,0,0) 43%, #0091FF),url('+serverURL+event.photo+')'}}>
-                        <i className="fas fa-arrow-left"></i>
+                        <Link to='/events'><i className="fas fa-arrow-left"></i></Link>
                         <a className="entertainment" href="#">Entertainment</a>
                     </div>
 
@@ -113,7 +106,6 @@ class RouteSingleEvent extends Component {
                             <div className="card comment-card">
                                 <div className="card-body">
                                     <p className="username">{review.user.name}</p>
-                                    {/* <h5 className="card-title title">{review.title}</h5> */}
                                     <p className="card-text comment">{review.comment}</p>
                                     {currentUser && (currentUser.id == review.user_id || currentUser.role == 'admin') ? (<i className="bin" onClick={this.handleTrashClick} data-reviewid={review.id} className="fas fa-trash"></i>) : null}
                                     
@@ -126,7 +118,6 @@ class RouteSingleEvent extends Component {
 
                     <div className="input-group mb-3">
                         <form onSubmit={this.handleFormSubmit} ref={(el) => {this.form = el}}>
-                        {/* <input type="text" name="title" id="title" className="form-control" placeholder="Add title" aria-label="Recipient's username" aria-describedby="basic-addon2"/> */}
                         <input type="text" name="comment" id="comment" className="form-control" placeholder="Add comment" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
                             <div className="input-group-append">
                                 <button type="submit" className="comment-button">add</button>
